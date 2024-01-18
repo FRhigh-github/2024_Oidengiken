@@ -1,33 +1,339 @@
-!SESSION 2024-01-17 17:53:29.121 -----------------------------------------------
+!SESSION 2024-01-18 17:53:18.659 -----------------------------------------------
 eclipse.buildId=Version 1.14.0
 java.version=17.0.8.1
 java.vendor=Eclipse Adoptium
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\ofence
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-17 17:53:32.901
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-18 17:53:30.626
 !MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
 
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-17 17:53:32.911
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-18 17:53:30.642
 !MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\ofence\.metadata\.log4j2.xml
 
-!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-17 17:53:34.805
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-18 17:53:37.249
 !MESSAGE Started RMI Server, listening on port 41337
-!SESSION 2024-01-18 16:44:37.737 -----------------------------------------------
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-18 17:54:13.840
+!MESSAGE Indexed 'IRrecive' (22 sources, 82 headers) in 2.35 sec: 5,030 declarations; 26,525 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0063%)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2024-01-18 17:57:03.838
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://sw-center.st.com/stm32cubeide/eclipse/2019-03/artifacts.jar.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:454)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:266)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.getLocalFile(SimpleArtifactRepositoryFactory.java:68)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:92)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:80)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedRepository(ProvisioningContext.java:202)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:176)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getAllLoadedArtifactRepositories(ProvisioningContext.java:370)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactSources(ProvisioningContext.java:451)
+	at org.eclipse.equinox.internal.p2.engine.phases.AuthorityChecker.start(AuthorityChecker.java:87)
+	at org.eclipse.equinox.internal.p2.engine.phases.Collect.completePhase(Collect.java:97)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:254)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:105)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:50)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:95)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:49)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:181)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:76)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:188)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
+	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:257)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.acquireEndpoint(InternalExecRuntime.java:103)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:119)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2024-01-18 17:57:03.839
+!MESSAGE Unable to read repository at https://sw-center.st.com/stm32cubeide/eclipse/2019-03/artifacts.jar.
+!STACK 0
+java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
+	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:257)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.acquireEndpoint(InternalExecRuntime.java:103)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:119)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2024-01-18 17:57:03.841
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://sw-center.st.com/stm32cubeide/eclipse.
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:187)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedRepository(ProvisioningContext.java:202)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:176)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getAllLoadedArtifactRepositories(ProvisioningContext.java:370)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactSources(ProvisioningContext.java:451)
+	at org.eclipse.equinox.internal.p2.engine.phases.AuthorityChecker.start(AuthorityChecker.java:87)
+	at org.eclipse.equinox.internal.p2.engine.phases.Collect.completePhase(Collect.java:97)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:254)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:105)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:50)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:95)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:49)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:181)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:76)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:188)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://sw-center.st.com/stm32cubeide/eclipse/2019-03/artifacts.jar.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:454)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:266)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.getLocalFile(SimpleArtifactRepositoryFactory.java:68)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:92)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:80)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
+	... 31 more
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
+	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:257)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.acquireEndpoint(InternalExecRuntime.java:103)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:119)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1002 2024-01-18 17:57:03.841
+!MESSAGE Unable to read repository at https://sw-center.st.com/stm32cubeide/eclipse.
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://sw-center.st.com/stm32cubeide/eclipse/2019-03/artifacts.jar.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:454)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:266)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.getLocalFile(SimpleArtifactRepositoryFactory.java:68)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:92)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:80)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:496)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:177)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedRepository(ProvisioningContext.java:202)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:176)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getAllLoadedArtifactRepositories(ProvisioningContext.java:370)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactSources(ProvisioningContext.java:451)
+	at org.eclipse.equinox.internal.p2.engine.phases.AuthorityChecker.start(AuthorityChecker.java:87)
+	at org.eclipse.equinox.internal.p2.engine.phases.Collect.completePhase(Collect.java:97)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:254)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:105)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:50)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:95)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:49)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:181)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:76)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:188)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
+	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:257)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.acquireEndpoint(InternalExecRuntime.java:103)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:119)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	... 1 more
+!SUBENTRY 2 org.eclipse.equinox.p2.transport.ecf 4 1002 2024-01-18 17:57:03.841
+!MESSAGE Unable to read repository at https://sw-center.st.com/stm32cubeide/eclipse/2019-03/artifacts.jar.
+!STACK 0
+java.lang.IllegalStateException: Connection pool shut down
+	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
+	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:257)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.acquireEndpoint(InternalExecRuntime.java:103)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:119)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:175)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:133)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement$1.proceed(ExecChainElement.java:57)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:75)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1009)
+	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:997)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:76)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2024-01-18 17:57:03.844
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-01-18 17:57:03.845
+!MESSAGE session context was:(profile=STM32CubeIDE, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-01-18 17:57:03.845
+!MESSAGE Cannot invoke "org.eclipse.equinox.internal.p2.repository.Transport.download(java.net.URI, java.io.OutputStream, org.eclipse.core.runtime.IProgressMonitor)" because the return value of "org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.getTransport()" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.equinox.internal.p2.repository.Transport.download(java.net.URI, java.io.OutputStream, org.eclipse.core.runtime.IProgressMonitor)" because the return value of "org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.getTransport()" is null
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.handleRemoteIndexFile(AbstractRepositoryManager.java:738)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:732)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:674)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedRepository(ProvisioningContext.java:202)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:176)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getAllLoadedArtifactRepositories(ProvisioningContext.java:370)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactSources(ProvisioningContext.java:451)
+	at org.eclipse.equinox.internal.p2.engine.phases.AuthorityChecker.start(AuthorityChecker.java:87)
+	at org.eclipse.equinox.internal.p2.engine.phases.Collect.completePhase(Collect.java:97)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:254)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:105)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:50)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:95)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:49)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:181)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:76)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:188)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-01-18 17:57:06.873 -----------------------------------------------
 eclipse.buildId=Version 1.14.0
 java.version=17.0.8.1
 java.vendor=Eclipse Adoptium
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\ofence
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-18 16:44:58.492
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-18 17:57:10.222
 !MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
 
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-18 16:44:58.498
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-18 17:57:10.222
 !MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\ofence\.metadata\.log4j2.xml
 
-!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-18 16:45:23.287
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-18 17:57:14.052
 !MESSAGE Started RMI Server, listening on port 41337
-
-!ENTRY org.eclipse.cdt.core 1 0 2024-01-18 16:48:24.774
-!MESSAGE Indexed 'IR_recive' (22 sources, 82 headers) in 2.54 sec: 5,030 declarations; 26,525 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0063%)

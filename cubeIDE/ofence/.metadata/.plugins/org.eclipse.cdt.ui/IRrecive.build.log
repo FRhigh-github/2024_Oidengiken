@@ -1,0 +1,84 @@
+18:00:58 **** Incremental Build of configuration Debug for project IRrecive ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'getIR':
+../Core/Src/main.c:105:51: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive' differ in signedness [-Wpointer-sign]
+  105 |                         HAL_UART_Receive(&huart1, &IRrevh, 1, 1000);
+      |                                                   ^~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:108:43: warning: passing argument 2 of 'HAL_UART_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  108 |                 HAL_UART_Receive(&huart1, &IRrev, 2, 1000);
+      |                                           ^~~~~~
+      |                                           |
+      |                                           char (*)[2]
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[2]'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:114:24: warning: implicit declaration of function 'abs' [-Wimplicit-function-declaration]
+  114 |                 IRdr = abs(IRdr);
+      |                        ^~~
+../Core/Src/main.c:21:1: note: include '<stdlib.h>' or provide a declaration of 'abs'
+   20 | #include "main.h"
+  +++ |+#include <stdlib.h>
+   21 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:127:11: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  127 |           sprintf(str, "%d\n\r", IRorigin);
+      |           ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:127:11: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  127 |           sprintf(str, "%d\n\r", IRorigin);
+      |           ^~~~~~~
+../Core/Src/main.c:127:11: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:128:44: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  128 |           HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                            ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:128:44: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  128 |           HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                            ^~~~~~
+../Core/Src/main.c:128:44: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:128:38: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  128 |           HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                      ^~~~
+      |                                      |
+      |                                      char (*)[100]
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char (*)[100]'
+  745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "IRrecive.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\ofence\IRrecive\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IRrecive.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: IRrecive.elf
+ 
+arm-none-eabi-size  IRrecive.elf 
+arm-none-eabi-objdump -h -S IRrecive.elf  > "IRrecive.list"
+   text	   data	    bss	    dec	    hex	filename
+  14000	    100	   2044	  16144	   3f10	IRrecive.elf
+Finished building: default.size.stdout
+ 
+Finished building: IRrecive.list
+ 
+
+18:01:00 Build Finished. 0 errors, 8 warnings. (took 1s.104ms)
+

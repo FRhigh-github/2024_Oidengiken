@@ -119,7 +119,7 @@ int main(){
     //     //printf("%d\r\n",IRdr);
     // }
     while(1) {
-        printf("number=%d",HoldIR2.read());
+        getIRdata();
     
 }
 }
@@ -149,7 +149,7 @@ void getIMU(){
 }
 
 void getIRdata(){
-    while(IR.getc()!='H');
+    while(IR.getc()!=255);
     IRdata.lowbyte=IR.getc();
     IRdata.highbyte=IR.getc();
     IRdata.origin=IRdata.highbyte*256+IRdata.lowbyte;
@@ -163,7 +163,7 @@ void getIRdata(){
         IRdr=pre_IRdr*0.8+IRdr*0.2;
     }
     pre_IRdr=IRdr;*/
-            //printf("%d\r\n",IRdata.origin);
+    printf("%d\r\n",IRdata.origin);
 }
 
 void getOpenMVdata(){
