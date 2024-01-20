@@ -954,9 +954,9 @@ Disassembly of section .text:
   			IRrevh_number = (int) IRrevh;
  8000bf4:	7ea3      	ldrb	r3, [r4, #26]
  8000bf6:	6163      	str	r3, [r4, #20]
-  		} while (IRrevh_number != 255);
+  		} while (IRrevh_number != 72);
  8000bf8:	6963      	ldr	r3, [r4, #20]
- 8000bfa:	2bff      	cmp	r3, #255	; 0xff
+ 8000bfa:	2b48      	cmp	r3, #72	; 0x48
  8000bfc:	d1f2      	bne.n	8000be4 <getIR.0+0xc>
   		HAL_UART_Receive(&huart1, &IRrev, 2, 1000);
  8000bfe:	f104 0118 	add.w	r1, r4, #24
