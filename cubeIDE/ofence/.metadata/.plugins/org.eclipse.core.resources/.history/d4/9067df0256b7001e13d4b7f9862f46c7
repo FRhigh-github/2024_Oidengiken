@@ -104,7 +104,7 @@ int main(void)
   		do {
   			HAL_UART_Receive(&huart1, &IRrevh, 1, 1000);
   			IRrevh_number = (int) IRrevh;
-  		} while (IRrevh_number != 72);
+  		} while (IRrevh_number != 255);
   		HAL_UART_Receive(&huart1, &IRrev, 2, 1000);
   		IRrev_number[0] = (int) IRrev[0];
   		IRrev_number[1] = (int) IRrev[1];
@@ -124,7 +124,7 @@ int main(void)
   while (1)
   {
 	  getIR();
-	  sprintf(str, "%d\n\r", IRorigin);
+	  sprintf(str, "%d\n\r", 100);
 	  HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
     /* USER CODE END WHILE */
 

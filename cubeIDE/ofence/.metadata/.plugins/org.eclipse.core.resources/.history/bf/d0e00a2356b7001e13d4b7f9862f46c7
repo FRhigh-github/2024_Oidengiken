@@ -124,7 +124,7 @@ int main(void)
   while (1)
   {
 	  getIR();
-	  sprintf(str, "%d\n\r", IRorigin);
+	  sprintf(str, "%d\n\r", IRAngle);
 	  HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
     /* USER CODE END WHILE */
 
