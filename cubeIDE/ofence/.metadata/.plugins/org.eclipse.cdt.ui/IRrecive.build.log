@@ -1,4 +1,4 @@
-14:38:29 **** Incremental Build of configuration Debug for project IRrecive ****
+17:26:26 **** Incremental Build of configuration Debug for project IRrecive ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'getIR':
@@ -35,14 +35,14 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
    21 | 
 ../Core/Src/main.c: In function 'main':
 ../Core/Src/main.c:127:11: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-  127 |           sprintf(str, "%d\n\r", IRorigin);
+  127 |           sprintf(str, "%d\n\r", IRAngle);
       |           ^~~~~~~
 ../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
    20 | #include "main.h"
   +++ |+#include <stdio.h>
    21 | 
 ../Core/Src/main.c:127:11: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-  127 |           sprintf(str, "%d\n\r", IRorigin);
+  127 |           sprintf(str, "%d\n\r", IRAngle);
       |           ^~~~~~~
 ../Core/Src/main.c:127:11: note: include '<stdio.h>' or provide a declaration of 'sprintf'
 ../Core/Src/main.c:128:44: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
@@ -80,5 +80,5 @@ Finished building: default.size.stdout
 Finished building: IRrecive.list
  
 
-14:38:29 Build Finished. 0 errors, 8 warnings. (took 547ms)
+17:26:27 Build Finished. 0 errors, 8 warnings. (took 591ms)
 

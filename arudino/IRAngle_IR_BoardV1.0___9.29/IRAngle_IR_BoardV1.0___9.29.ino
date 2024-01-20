@@ -49,7 +49,7 @@ void loop() {
   } else {
     alldata = IRAngle * 100 - IRdr;
   }
-  sendIRData(alldata);
+  sendIRData(X);
 
 }
 

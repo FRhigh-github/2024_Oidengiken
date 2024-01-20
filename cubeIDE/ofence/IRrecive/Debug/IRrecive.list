@@ -1062,8 +1062,8 @@ int main(void)
  8000cbe:	f107 0368 	add.w	r3, r7, #104	; 0x68
  8000cc2:	469c      	mov	ip, r3
  8000cc4:	f7ff ff88 	bl	8000bd8 <getIR.0>
-	  sprintf(str, "%d\n\r", IRorigin);
- 8000cc8:	6f3a      	ldr	r2, [r7, #112]	; 0x70
+	  sprintf(str, "%d\n\r", IRAngle);
+ 8000cc8:	6efa      	ldr	r2, [r7, #108]	; 0x6c
  8000cca:	1d3b      	adds	r3, r7, #4
  8000ccc:	4908      	ldr	r1, [pc, #32]	; (8000cf0 <main+0x58>)
  8000cce:	4618      	mov	r0, r3

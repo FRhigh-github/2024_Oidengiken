@@ -112,10 +112,10 @@ int main(void)
   		IRAngle = IRorigin * 0.01;
   		IRdr = IRorigin % 100;
   		IRdr = abs(IRdr);
-  		if (IRAngle >= 470) {
-  			IRAngle = IRAngle - 650;
-  		}
-  		IRAngle = IRAngle * -1;
+//  		if (IRAngle >= 470) {
+//  			IRAngle = IRAngle - 650;
+//  		}
+//  		IRAngle = IRAngle * -1;
   	}
   /* USER CODE END 2 */
 
@@ -124,7 +124,7 @@ int main(void)
   while (1)
   {
 	  getIR();
-	  sprintf(str, "%d\n\r", IRAngle);
+	  sprintf(str, "%d\n\r", IRorigin);
 	  HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
     /* USER CODE END WHILE */
 
