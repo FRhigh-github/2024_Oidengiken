@@ -1,0 +1,7 @@
+16:37:44 **** Incremental Build of configuration Debug for project IR ****
+make -j12 all 
+arm-none-eabi-gcc -o "IR.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\hiyua\OneDrive\ドキュメン�?\GitHub\2024_Oidengiken\cubeIDE\try\IR\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IR.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: cannot open linker script file C:\Users\hiyua\OneDrive\繝峨く繝･繝｡繝ｳ繝�?�GitHub\2024_Oidengiken\cubeIDE\try\IR\STM32F446RETX_FLASH.ld: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: IR.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
