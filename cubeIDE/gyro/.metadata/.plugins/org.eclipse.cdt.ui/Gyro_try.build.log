@@ -1,0 +1,41 @@
+21:35:00 **** Incremental Build of configuration Debug for project Gyro_try ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:108:11: error: 'I2CDev_Driver' undeclared (first use in this function)
+  108 |           I2CDev_Driver.MasterTransmit(dev_addr, data, len, pending);
+      |           ^~~~~~~~~~~~~
+../Core/Src/main.c:108:11: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:108:40: error: 'dev_addr' undeclared (first use in this function)
+  108 |           I2CDev_Driver.MasterTransmit(dev_addr, data, len, pending);
+      |                                        ^~~~~~~~
+../Core/Src/main.c:108:50: error: 'data' undeclared (first use in this function)
+  108 |           I2CDev_Driver.MasterTransmit(dev_addr, data, len, pending);
+      |                                                  ^~~~
+../Core/Src/main.c:108:56: error: 'len' undeclared (first use in this function)
+  108 |           I2CDev_Driver.MasterTransmit(dev_addr, data, len, pending);
+      |                                                        ^~~
+../Core/Src/main.c:108:61: error: 'pending' undeclared (first use in this function)
+  108 |           I2CDev_Driver.MasterTransmit(dev_addr, data, len, pending);
+      |                                                             ^~~~~~~
+../Core/Src/main.c:109:42: error: 'DevAddress' undeclared (first use in this function)
+  109 |           HAL_I2C_Master_Receive(&hi2c1, DevAddress, pData, Size, 1000);
+      |                                          ^~~~~~~~~~
+../Core/Src/main.c:109:54: error: 'pData' undeclared (first use in this function)
+  109 |           HAL_I2C_Master_Receive(&hi2c1, DevAddress, pData, Size, 1000);
+      |                                                      ^~~~~
+../Core/Src/main.c:109:61: error: 'Size' undeclared (first use in this function); did you mean 'size_t'?
+  109 |           HAL_I2C_Master_Receive(&hi2c1, DevAddress, pData, Size, 1000);
+      |                                                             ^~~~
+      |                                                             size_t
+../Core/Src/main.c:101:8: warning: unused variable 'buf' [-Wunused-variable]
+  101 |   char buf[10];
+      |        ^~~
+../Core/Src/main.c:100:8: warning: unused variable 'str' [-Wunused-variable]
+  100 |   char str[100];
+      |        ^~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+
+21:35:00 Build Failed. 9 errors, 2 warnings. (took 402ms)
+

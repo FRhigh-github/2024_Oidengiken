@@ -13,3 +13,36 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\mizun\D
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-17 17:52:15.635
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-01-20 17:32:55.161 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-20 17:32:58.356
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-20 17:32:58.363
+!MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-20 17:33:00.948
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-20 17:35:36.140
+!MESSAGE Indexed 'Gyro_try' (23 sources, 83 headers) in 2.19 sec: 5,358 declarations; 30,420 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0056%)
+!SESSION 2024-01-23 21:29:02.561 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-23 21:29:15.667
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-23 21:29:15.674
+!MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-23 21:29:22.005
+!MESSAGE Started RMI Server, listening on port 41337
