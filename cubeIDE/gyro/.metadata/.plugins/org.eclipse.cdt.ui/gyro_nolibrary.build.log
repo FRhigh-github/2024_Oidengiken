@@ -1,0 +1,67 @@
+22:37:25 **** Incremental Build of configuration Debug for project gyro_nolibrary ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  150 |                 sprintf(str, "%d\n\r", intbuff);
+      |                 ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:150:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  150 |                 sprintf(str, "%d\n\r", intbuff);
+      |                 ^~~~~~~
+../Core/Src/main.c:150:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:150:25: warning: passing argument 1 of 'sprintf' makes pointer from integer without a cast [-Wint-conversion]
+  150 |                 sprintf(str, "%d\n\r", intbuff);
+      |                         ^~~
+      |                         |
+      |                         char
+../Core/Src/main.c:150:25: note: expected 'char *' but argument is of type 'char'
+../Core/Src/main.c:151:50: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  151 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                                  ^~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:151:50: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  151 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                                  ^~~~~~
+../Core/Src/main.c:151:50: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:151:57: warning: passing argument 1 of 'strlen' makes pointer from integer without a cast [-Wint-conversion]
+  151 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         char
+../Core/Src/main.c:151:57: note: expected 'const char *' but argument is of type 'char'
+../Core/Src/main.c:151:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  151 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                            ^~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:125:17: warning: unused variable 'buff' [-Wunused-variable]
+  125 |         uint8_t buff;
+      |                 ^~~~
+arm-none-eabi-gcc -o "gyro_nolibrary.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\gyro_nolibrary\STM32F303K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gyro_nolibrary.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gyro_nolibrary.elf
+ 
+arm-none-eabi-size  gyro_nolibrary.elf 
+arm-none-eabi-objdump -h -S gyro_nolibrary.elf  > "gyro_nolibrary.list"
+   text	   data	    bss	    dec	    hex	filename
+  14628	    100	   2260	  16988	   425c	gyro_nolibrary.elf
+Finished building: default.size.stdout
+ 
+Finished building: gyro_nolibrary.list
+ 
+
+22:37:26 Build Finished. 0 errors, 8 warnings. (took 600ms)
+

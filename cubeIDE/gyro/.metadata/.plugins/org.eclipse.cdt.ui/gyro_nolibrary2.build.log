@@ -1,0 +1,10 @@
+22:51:38 **** Incremental Build of configuration Debug for project gyro_nolibrary2 ****
+make -j16 all 
+arm-none-eabi-size  gyro_nolibrary2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14428	    100	   2124	  16652	   410c	gyro_nolibrary2.elf
+Finished building: default.size.stdout
+ 
+
+22:51:39 Build Finished. 0 errors, 0 warnings. (took 195ms)
+

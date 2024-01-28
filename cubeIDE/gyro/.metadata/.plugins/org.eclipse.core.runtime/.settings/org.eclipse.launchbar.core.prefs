@@ -1,7 +1,12 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Gyro_try Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyrotry Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyro_nolibrary Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:erro Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyro_nolibrary2 Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Gyro_try\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Gyro_try\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:erro\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyro_nolibrary\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyro_nolibrary2\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyrotry\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyrotry\ Debug/activeLaunchTarget=null\:---

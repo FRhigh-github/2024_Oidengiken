@@ -1,13 +1,9 @@
-
-
-
-
 #include <Arduino.h>
 #include <Wire.h>
 #include <MPU6050_6Axis_MotionApps20.h>
 #include "HardwareSerial.h"
 HardwareSerial serialX(PA_10, PA_9);
-void sendIRData(int value);
+void sendIMUData(int value);
 //キャリブレーション値  1525  49  15  12
 #define Gyro_X -22
 #define Gyro_Y -2
@@ -88,7 +84,7 @@ void GyroStart() {
   dmpReady = true;
   packetSize = mpu.dmpGetFIFOPacketSize();
 }
-void sendIRData(int value) {
+void sendIMUData(int value) {
   serialX.write('H'); // ヘッダの送信
   serialX.write(lowByte(value)); // 下位バイトの送信
   serialX.write(highByte(value)); // 上位バイトの送信
