@@ -218,12 +218,9 @@ int main(void) {
 			IRdrSub -= 4;
 		}
 		IRdrPast = IRdrSub;
-		if (IRAngle >= 475) {
-			IRAngle = IRAngle - 655;
+		if (IRAngle >= 470) {
+			IRAngle = IRAngle - 650;
 		}
-//		if (IRAngle >= 480) {
-//			IRAngle = IRAngle - 644;
-//		}
 		IRAngle = IRAngle * -1;
 		memmove(&IRvalue[0], &IRvalue[1], sizeof(IRvalue[0]) * (19 - 0));
 		IRvalue[19] = IRdr;
@@ -397,30 +394,32 @@ int main(void) {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
 	//getopenmv();
-	//getIR();
-	//getLinedata();
-	//getIMU();
+	getIR();
+	getLinedata();
+	getIMU();
 	Motor_Speed(1, 0);
 	Motor_Speed(2, 0);
 	Motor_Speed(3, 0);
 	Motor_Speed(4, 0);
 	while (1) {
-		//Improveattitude(0);
-		//Angle_Movesub(0, 0);
-//		LineMove();
-//		if (LinePower != 0) {
-//			allpower = 0;
-//			Improveattitude(0);
-//			Angle_Movesub(0, allpower);
-//		} else {
-			getIR();
+		getLinedata();
+		if (LinePower = !0) {
+			allpower = 0;
+			Improveattitude(0);
+			Angle_Movesub(0, allpower);
+		} else {
+			getIRdata();
+			allpower += 7;
+			if (allpower > 80) {
+				allpower = 80;
+			}
 			Improveattitude(0);
 			Angle_Movesub(IRAngle, 40);
-//		}
+		}
 //		Improveattitude(0);
 //		Angle_Movesub(IRAngle, 50);
-		sprintf(str, "%d\n\r", IRAngle);
-		HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+//		sprintf(str, "%d\n\r", IRorigin);
+//		HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

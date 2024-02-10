@@ -218,6 +218,12 @@ int main(void) {
 			IRdrSub -= 4;
 		}
 		IRdrPast = IRdrSub;
+		if (IRAngle <= 180) {
+			IRAngle = IRAngle * 1.1;
+			if (IRAngle > 180) {
+				IRAngle = 180;
+			}
+		}
 		if (IRAngle >= 475) {
 			IRAngle = IRAngle - 655;
 		}
@@ -407,16 +413,16 @@ int main(void) {
 	while (1) {
 		//Improveattitude(0);
 		//Angle_Movesub(0, 0);
-//		LineMove();
-//		if (LinePower != 0) {
-//			allpower = 0;
-//			Improveattitude(0);
-//			Angle_Movesub(0, allpower);
-//		} else {
+		LineMove();
+		if (LinePower != 0) {
+			allpower = 0;
+			Improveattitude(0);
+			Angle_Movesub(0, allpower);
+		} else {
 			getIR();
 			Improveattitude(0);
 			Angle_Movesub(IRAngle, 40);
-//		}
+		}
 //		Improveattitude(0);
 //		Angle_Movesub(IRAngle, 50);
 		sprintf(str, "%d\n\r", IRAngle);

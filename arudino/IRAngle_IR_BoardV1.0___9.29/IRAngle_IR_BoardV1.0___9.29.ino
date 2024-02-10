@@ -42,8 +42,7 @@ void loop() {
   }
   IRAngle = (atan2(Y, X) * 180 / PI);
   IRAngle = round(IRAngle);
-  //IRdr = pulseIn(IRpin[maxValue], HIGH, 1000);
-  //IRdr = IRdr*0.4;
+  IRdr = maxValue*0.5;
   if (IRdr > 99) {
     IRdr = 99;
   }
@@ -52,11 +51,11 @@ void loop() {
   } else {
     alldata = IRAngle * 100 - IRdr;
   }
-  sendIRData(maxValue);
+  sendIRData(alldata);
 }
 void IRread(int port) {
   IRport[port] = 0;
-  for (int i = 0; i < 128; i++) {
+  for (int i = 0; i < 256; i++) {
     if (digitalRead(IRpin[port]) == LOW) {
       IRport[port] = IRport[port] + 1;
     }

@@ -407,19 +407,19 @@ int main(void) {
 	while (1) {
 		//Improveattitude(0);
 		//Angle_Movesub(0, 0);
-//		LineMove();
-//		if (LinePower != 0) {
-//			allpower = 0;
-//			Improveattitude(0);
-//			Angle_Movesub(0, allpower);
-//		} else {
+		LineMove();
+		if (LinePower != 0) {
+			allpower = 0;
+			Improveattitude(0);
+			Angle_Movesub(0, allpower);
+		} else {
 			getIR();
 			Improveattitude(0);
 			Angle_Movesub(IRAngle, 40);
-//		}
+		}
 //		Improveattitude(0);
 //		Angle_Movesub(IRAngle, 50);
-		sprintf(str, "%d\n\r", IRAngle);
+		sprintf(str, "%d\n\r", IRorigin);
 		HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
 		/* USER CODE END WHILE */
 
