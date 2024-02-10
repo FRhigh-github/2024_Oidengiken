@@ -1,0 +1,239 @@
+15:44:55 **** Incremental Build of configuration Debug for project ofence_normal ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:162:29: warning: missing braces around initializer [-Wmissing-braces]
+  162 |         double kesu[4][3] = { 1, 1, 0.00, 1, -1, 0.00, -1, -1, 0.00, -1, 1, 0.00, };
+      |                             ^
+      |                               {         } {          } {           } {            }
+../Core/Src/main.c: In function 'getLinedata':
+../Core/Src/main.c:176:51: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive' differ in signedness [-Wpointer-sign]
+  176 |                         HAL_UART_Receive(&huart5, &Linerevh, 1, 1000);
+      |                                                   ^~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:179:43: warning: passing argument 2 of 'HAL_UART_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  179 |                 HAL_UART_Receive(&huart5, &Linerev, 2, 1000);
+      |                                           ^~~~~~~~
+      |                                           |
+      |                                           char (*)[2]
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[2]'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:197:29: warning: implicit declaration of function 'abs' [-Wimplicit-function-declaration]
+  197 |                 LinePower = abs(LinePower);
+      |                             ^~~
+../Core/Src/main.c:21:1: note: include '<stdlib.h>' or provide a declaration of 'abs'
+   20 | #include "main.h"
+  +++ |+#include <stdlib.h>
+   21 | 
+../Core/Src/main.c: In function 'getIR':
+../Core/Src/main.c:205:51: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive' differ in signedness [-Wpointer-sign]
+  205 |                         HAL_UART_Receive(&huart1, &IRrevh, sizeof(Linerevh), 1000);
+      |                                                   ^~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:208:43: warning: passing argument 2 of 'HAL_UART_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  208 |                 HAL_UART_Receive(&huart1, &IRrev, 2, 1000);
+      |                                           ^~~~~~
+      |                                           |
+      |                                           char (*)[2]
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[2]'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:225:17: warning: implicit declaration of function 'memmove' [-Wimplicit-function-declaration]
+  225 |                 memmove(&IRvalue[0], &IRvalue[1], sizeof(IRvalue[0]) * (19 - 0));
+      |                 ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'memmove'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:225:17: warning: incompatible implicit declaration of built-in function 'memmove' [-Wbuiltin-declaration-mismatch]
+  225 |                 memmove(&IRvalue[0], &IRvalue[1], sizeof(IRvalue[0]) * (19 - 0));
+      |                 ^~~~~~~
+../Core/Src/main.c:225:17: note: include '<string.h>' or provide a declaration of 'memmove'
+../Core/Src/main.c: In function 'getIMU':
+../Core/Src/main.c:234:51: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive' differ in signedness [-Wpointer-sign]
+  234 |                         HAL_UART_Receive(&huart3, &IMUrevh, sizeof(Linerevh), 1000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c:237:43: warning: passing argument 2 of 'HAL_UART_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  237 |                 HAL_UART_Receive(&huart3, &IMUrev, 2, 10);
+      |                                           ^~~~~~~
+      |                                           |
+      |                                           char (*)[2]
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:746:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[2]'
+  746 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'LineMove':
+../Core/Src/main.c:336:22: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
+  336 |                 Vx = sin(rad);
+      |                      ^~~
+../Core/Src/main.c:21:1: note: include '<math.h>' or provide a declaration of 'sin'
+   20 | #include "main.h"
+  +++ |+#include <math.h>
+   21 | 
+../Core/Src/main.c:336:22: warning: incompatible implicit declaration of built-in function 'sin' [-Wbuiltin-declaration-mismatch]
+  336 |                 Vx = sin(rad);
+      |                      ^~~
+../Core/Src/main.c:336:22: note: include '<math.h>' or provide a declaration of 'sin'
+../Core/Src/main.c:337:22: warning: implicit declaration of function 'cos' [-Wimplicit-function-declaration]
+  337 |                 Vy = cos(rad);
+      |                      ^~~
+../Core/Src/main.c:337:22: note: include '<math.h>' or provide a declaration of 'cos'
+../Core/Src/main.c:337:22: warning: incompatible implicit declaration of built-in function 'cos' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:337:22: note: include '<math.h>' or provide a declaration of 'cos'
+../Core/Src/main.c: In function 'Angle_Movesub':
+../Core/Src/main.c:354:22: warning: incompatible implicit declaration of built-in function 'sin' [-Wbuiltin-declaration-mismatch]
+  354 |                 Vx = sin(rad);
+      |                      ^~~
+../Core/Src/main.c:354:22: note: include '<math.h>' or provide a declaration of 'sin'
+../Core/Src/main.c:355:22: warning: incompatible implicit declaration of built-in function 'cos' [-Wbuiltin-declaration-mismatch]
+  355 |                 Vy = cos(rad);
+      |                      ^~~
+../Core/Src/main.c:355:22: note: include '<math.h>' or provide a declaration of 'cos'
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:425:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  425 |                 sprintf(str, "%d\n\r", IRorigin);
+      |                 ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:425:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  425 |                 sprintf(str, "%d\n\r", IRorigin);
+      |                 ^~~~~~~
+../Core/Src/main.c:425:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:426:50: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  426 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                                  ^~~~~~
+../Core/Src/main.c:426:50: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:426:50: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:426:50: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:426:44: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  426 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                            ^~~~
+      |                                            |
+      |                                            char (*)[10]
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char (*)[10]'
+  745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:173:13: warning: unused variable 'allpower' [-Wunused-variable]
+  173 |         int allpower;
+      |             ^~~~~~~~
+../Core/Src/main.c:167:32: warning: unused variable 'Lline' [-Wunused-variable]
+  167 |         double Vxline, Vyline, Lline;
+      |                                ^~~~~
+../Core/Src/main.c:167:24: warning: unused variable 'Vyline' [-Wunused-variable]
+  167 |         double Vxline, Vyline, Lline;
+      |                        ^~~~~~
+../Core/Src/main.c:167:16: warning: unused variable 'Vxline' [-Wunused-variable]
+  167 |         double Vxline, Vyline, Lline;
+      |                ^~~~~~
+../Core/Src/main.c:164:15: warning: unused variable 'pi' [-Wunused-variable]
+  164 |         float pi = 3.14; //3.141592
+      |               ^~
+../Core/Src/main.c:148:14: warning: unused variable 'kaigyou' [-Wunused-variable]
+  148 |         char kaigyou[] = "\n\r";
+      |              ^~~~~~~
+../Core/Src/main.c:145:13: warning: unused variable 'defence_distance' [-Wunused-variable]
+  145 |         int defence_distance;
+      |             ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:144:13: warning: unused variable 'defence_angle' [-Wunused-variable]
+  144 |         int defence_angle;
+      |             ^~~~~~~~~~~~~
+../Core/Src/main.c:143:13: warning: unused variable 'attack_distance' [-Wunused-variable]
+  143 |         int attack_distance;
+      |             ^~~~~~~~~~~~~~~
+../Core/Src/main.c:142:13: warning: unused variable 'attack_angle' [-Wunused-variable]
+  142 |         int attack_angle;
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:141:13: warning: unused variable 'MVrev_number' [-Wunused-variable]
+  141 |         int MVrev_number[4];
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:140:14: warning: unused variable 'MVrev' [-Wunused-variable]
+  140 |         char MVrev[4];
+      |              ^~~~~
+../Core/Src/main.c:139:13: warning: unused variable 'MVrevh_number' [-Wunused-variable]
+  139 |         int MVrevh_number;
+      |             ^~~~~~~~~~~~~
+../Core/Src/main.c:138:14: warning: unused variable 'MVrevh' [-Wunused-variable]
+  138 |         char MVrevh;
+      |              ^~~~~~
+../Core/Src/main.c:131:13: warning: variable 'IMUrevh_number' set but not used [-Wunused-but-set-variable]
+  131 |         int IMUrevh_number;
+      |             ^~~~~~~~~~~~~~
+../Core/Src/main.c:127:13: warning: unused variable 'IR_ave' [-Wunused-variable]
+  127 |         int IR_ave;
+      |             ^~~~~~
+../Core/Src/main.c:125:13: warning: unused variable 'mawarikomu' [-Wunused-variable]
+  125 |         int mawarikomu;
+      |             ^~~~~~~~~~
+../Core/Src/main.c:117:13: warning: variable 'IRrevh_number' set but not used [-Wunused-but-set-variable]
+  117 |         int IRrevh_number;
+      |             ^~~~~~~~~~~~~
+At top level:
+../Core/Src/main.c:348:14: warning: 'Angle_Movesub' defined but not used [-Wunused-function]
+  348 |         void Angle_Movesub(int degree, int power) {     //進みたい角度とモーターの出??  ?  ? ???  ?  ??  ?  ? ???  ?  力す??  ?  ? ???  ?  ??  ?  ? ???  ?  角度に進??  ?  ?
+      |              ^~~~~~~~~~~~~
+../Core/Src/main.c:329:14: warning: 'LineMove' defined but not used [-Wunused-function]
+  329 |         void LineMove() {
+      |              ^~~~~~~~
+../Core/Src/main.c:301:14: warning: 'Improveattitude_target' defined but not used [-Wunused-function]
+  301 |         void Improveattitude_target(int Angle, int basic) {
+      |              ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:290:14: warning: 'Improveattitude' defined but not used [-Wunused-function]
+  290 |         void Improveattitude(int Angle) {
+      |              ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ofence_normal.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\ofence\ofence_normal\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ofence_normal.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ofence_normal.elf
+ 
+arm-none-eabi-size  ofence_normal.elf 
+arm-none-eabi-objdump -h -S ofence_normal.elf  > "ofence_normal.list"
+   text	   data	    bss	    dec	    hex	filename
+  20000	    100	   2332	  22432	   57a0	ofence_normal.elf
+Finished building: default.size.stdout
+ 
+Finished building: ofence_normal.list
+ 
+
+15:44:56 Build Finished. 0 errors, 43 warnings. (took 819ms)
+

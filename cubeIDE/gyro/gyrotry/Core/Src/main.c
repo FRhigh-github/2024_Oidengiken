@@ -117,6 +117,11 @@ int main(void) {
 	/* Infinite loop */
 	MPU6050_setAddress(0x68);
 	MPU6050_initialize();
+	if (MPU6050_testConnection() != true){
+		HAL_UART_Transmit(&huart2, (uint8_t*)"disconectoin\r\n", 10, 1000);
+		while (true) {}
+	}
+	\
 	MPU6050_setXGyroOffset(Gyro_X);
 	MPU6050_setYGyroOffset(Gyro_Y);
 	MPU6050_setZGyroOffset(Gyro_Z);
@@ -141,17 +146,17 @@ int main(void) {
 			while (fifoCount < packetSize)
 				fifoCount = MPU6050_getFIFOCount();
 			MPU6050_getFIFOBytes(fifoBuffer, packetSize);
-			fifoCount -= packetSize;
-			mpu.dmpGetQuaternion(&q, fifoBuffer);
-			mpu.dmpGetGravity(&gravity, &q);
-			mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-			Gyro_Now = degrees(ypr[0]); // + 180;
-			Gyro = Gyro_Now + Gyro_Offset;
-			if (Gyro < 0)
-				Gyro += 360;
-			if (Gyro > 359)
-				Gyro = Gyro - 360;
-			degree = Gyro;
+//			fifoCount -= packetSize;
+//			mpu.dmpGetQuaternion(&q, fifoBuffer);
+//			mpu.dmpGetGravity(&gravity, &q);
+//			mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
+//			Gyro_Now = degrees(ypr[0]); // + 180;
+//			Gyro = Gyro_Now + Gyro_Offset;
+//			if (Gyro < 0)
+//				Gyro += 360;
+//			if (Gyro > 359)
+//				Gyro = Gyro - 360;
+//			degree = Gyro;
 		}else{
 			HAL_UART_Transmit(&huart2, (uint8_t*)"error2\r\n", 10, 1000);
 		}

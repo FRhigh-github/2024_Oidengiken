@@ -93,21 +93,51 @@ int main(void) {
 	MX_I2C1_Init();
 	/* USER CODE BEGIN 2 */
 	uint8_t buff;
-	int intbuff;
-	char str[10];
+	int intbuff=200;
+	int number;
+	char str[100];
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
-	while (1) {
-		/* USER CODE END WHILE */
-		intbuff = 100;
-		sprintf(str, "%d\n\r", intbuff);
-		HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
-		/* USER CODE BEGIN 3 */
+	HAL_StatusTypeDef res;
+	for (uint16_t i = 0; i < 128; i++) {
+		res = HAL_I2C_IsDeviceReady(&hi2c1, i << 1, 1, 100);
+		if (res == HAL_OK) {
+			char msg[64];
+			snprintf(msg, sizeof(msg), "0x%02X\r\n", i);
+//			HAL_UART_Transmit(&huart2, (uint8_t*) msg, strlen(msg),
+//			1000);
+			number = i;
+		}
 	}
-	/* USER CODE END 3 */
+	HAL_StatusTypeDef res2;
+	HAL_UART_Transmit(&huart2, (uint8_t*) "a", 10, 1);
+	//HAL_Delay(10);
+	//res2 = HAL_I2C_Mem_Read(&hi2c1, number, 0x6B, 8, buff, 1, 1000);
+	if (1) {
+				//intbuff = (int)buff;
+				sprintf(str, "%d\n\r", intbuff);
+				HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+		//		HAL_UART_Transmit(&huart2, (uint8_t*) "get\r\n", 5, 1000);
+		//char msg[64];
+		//HAL_UART_Transmit(&huart2, (uint8_t*) "get\r\n", 5, 1000);
+	}
+	while (1) {
+//		res2 = HAL_I2C_Mem_Read(&hi2c1, number, 0x6B, 8, buff, 1, 1000);
+//		if (res2 == HAL_OK) {
+//			//char msg[64];
+//			HAL_UART_Transmit(&huart2, (uint8_t*) "canget\r\n", 15, 1000);
+//		}else{
+//			HAL_UART_Transmit(&huart2, (uint8_t*) "error\r\n", 15, 1000);
+//			while(1){}
+//		}
+	}
+	/* USER CODE END WHILE */
+
+	/* USER CODE BEGIN 3 */
 }
+/* USER CODE END 3 */
 
 /**
  * @brief System Clock Configuration
@@ -163,7 +193,7 @@ static void MX_I2C1_Init(void) {
 
 	/* USER CODE END I2C1_Init 1 */
 	hi2c1.Instance = I2C1;
-	hi2c1.Init.Timing = 0x2000090E;
+	hi2c1.Init.Timing = 0x0000020B;
 	hi2c1.Init.OwnAddress1 = 0;
 	hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
 	hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -208,7 +238,7 @@ static void MX_USART2_UART_Init(void) {
 
 	/* USER CODE END USART2_Init 1 */
 	huart2.Instance = USART2;
-	huart2.Init.BaudRate = 38400;
+	huart2.Init.BaudRate = 115200;
 	huart2.Init.WordLength = UART_WORDLENGTH_8B;
 	huart2.Init.StopBits = UART_STOPBITS_1;
 	huart2.Init.Parity = UART_PARITY_NONE;

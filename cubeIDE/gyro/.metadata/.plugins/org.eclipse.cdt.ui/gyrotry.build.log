@@ -1,20 +1,20 @@
-20:16:37 **** Incremental Build of configuration Debug for project gyrotry ****
+19:45:34 **** Build of configuration Debug for project gyrotry ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:159:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-  159 |                 sprintf(str, "%d\n\r", intbuff);
+../Core/Src/main.c:163:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  163 |                 sprintf(str, "%d\n\r", intbuff);
       |                 ^~~~~~~
 ../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
    21 | #include "MPU6050.h"
   +++ |+#include <stdio.h>
    22 | 
-../Core/Src/main.c:159:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-  159 |                 sprintf(str, "%d\n\r", intbuff);
+../Core/Src/main.c:163:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  163 |                 sprintf(str, "%d\n\r", intbuff);
       |                 ^~~~~~~
-../Core/Src/main.c:159:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-../Core/Src/main.c:160:44: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
-  160 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+../Core/Src/main.c:163:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:164:44: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  164 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
       |                                            ^~~~
       |                                            |
       |                                            char (*)[20]
@@ -34,26 +34,20 @@ In file included from ../Core/Inc/stm32f3xx_hal_conf.h:327,
 ../Core/Src/main.c:113:17: warning: unused variable 'Gyro_Now' [-Wunused-variable]
   113 |         int16_t Gyro_Now = 0, Gyro = 0, Gyro_Offset = 0;
       |                 ^~~~~~~~
-../Core/Src/main.c:106:18: warning: unused variable 'fifoCount' [-Wunused-variable]
-  106 |         uint16_t fifoCount;
-      |                  ^~~~~~~~~
 ../Core/Src/main.c:105:21: warning: variable 'dmpReady' set but not used [-Wunused-but-set-variable]
   105 |         static bool dmpReady = false;
       |                     ^~~~~~~~
-../Core/Src/main.c:104:24: warning: variable 'mpuIntStatus' set but not used [-Wunused-but-set-variable]
-  104 |         static uint8_t mpuIntStatus;
-      |                        ^~~~~~~~~~~~
 arm-none-eabi-gcc -o "gyrotry.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\gyrotry\STM32F303K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gyrotry.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: gyrotry.elf
  
 arm-none-eabi-size  gyrotry.elf 
 arm-none-eabi-objdump -h -S gyrotry.elf  > "gyrotry.list"
    text	   data	    bss	    dec	    hex	filename
-  19004	    104	   2296	  21404	   539c	gyrotry.elf
+  19508	    104	   2296	  21908	   5594	gyrotry.elf
 Finished building: default.size.stdout
  
 Finished building: gyrotry.list
  
 
-20:16:40 Build Finished. 0 errors, 9 warnings. (took 2s.169ms)
+19:45:35 Build Finished. 0 errors, 7 warnings. (took 1s.360ms)
 

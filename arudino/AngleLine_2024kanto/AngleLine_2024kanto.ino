@@ -1,5 +1,5 @@
 uint8_t LinePin[] = { 5, 4, 3, 2, 23, 22, 21, 20, 17, 16, 15, 14, 13, 10, 9, 8, 0, 1, 6, 7, 11, 12 };
-float Angle[] = { 0, PI / 8, PI / 4, 3 * PI / 8, PI / 2, 5 * PI / 8, 3 * PI / 4, 7 * PI / 8, PI, -7 * PI / 8, -3 * PI / 4, -5 * PI / 8, -PI / 2, -3 * PI / 8, -PI / 4, -PI / 8, -15 * PI / 16, 15 * PI / 16, 9 * PI / 16, 7 * PI / 16, -7 * PI / 16, 9 * PI / 16 };
+float Angle[] = {0, PI / 8, PI / 4, 3 * PI / 8, PI / 2, 5 * PI / 8, 3 * PI / 4, 7 * PI / 8, PI, -7 * PI / 8, -3 * PI / 4, -5 * PI / 8, -PI / 2, -3 * PI / 8, -PI / 4, -PI / 8, -15 * PI / 16, 15 * PI / 16, 9 * PI / 16, 7 * PI / 16, -7 * PI / 16, -9 * PI / 16 };
 int Linepindata[22];
 uint8_t Linepinjudg[22];
 uint8_t Range[22];

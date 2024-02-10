@@ -47,7 +47,7 @@ void loop() {
   } else {
     alldata = IRAngle * 100 - IRdr;
   }
-  sendIRData(alldata);
+  sendIRData(IRvalue[0]);
 }
 uint16_t getIRport(uint8_t pin){
   switch(pin){
@@ -79,6 +79,9 @@ uint32_t pulsein(uint8_t number, uint8_t state, uint16_t timeout) {
       return 0;
   while (getIRport(number) != state)
     width++;
+  if(width>500){
+    width=500;
+  }
   return width;
 }
 void sendIRData(int value) {

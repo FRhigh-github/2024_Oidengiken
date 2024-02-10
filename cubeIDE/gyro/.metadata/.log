@@ -291,3 +291,81 @@ org.eclipse.core.runtime.CoreException: ST-Linkデバイスの初期化エラー
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-01-28 22:51:18.245
 !MESSAGE Existing sessions are:
+!SESSION 2024-01-29 15:31:05.231 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-29 15:31:16.355
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-29 15:31:16.356
+!MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-29 15:31:21.976
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-01-29 15:34:30.045 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-29 15:34:45.549
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-29 15:34:45.554
+!MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-29 15:34:53.462
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-02-01 18:58:52.390 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-01 18:59:08.452
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-01 18:59:08.458
+!MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-01 18:59:15.851
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-02-01 21:11:54.949
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.internal.ui.actions.DsfTerminateCommand$3$1@1813c8ea): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+!SESSION 2024-02-08 15:35:44.006 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-08 15:36:00.382
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-08 15:36:00.391
+!MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-08 15:36:14.713
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-02-10 11:13:03.647 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-10 11:13:17.741
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-10 11:13:17.750
+!MESSAGE Log4j2 initialized with config file C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\gyro\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-10 11:13:25.215
+!MESSAGE Started RMI Server, listening on port 41337

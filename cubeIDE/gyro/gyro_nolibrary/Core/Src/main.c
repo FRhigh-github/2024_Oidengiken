@@ -76,59 +76,57 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE END 0 */
 
 /**
- * @brief  The application entry point.
- * @retval int
- */
-int main(void) {
-	/* USER CODE BEGIN 1 */
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
 
-	/* USER CODE END 1 */
+  /* USER CODE END 1 */
 
-	/* MCU Configuration--------------------------------------------------------*/
+  /* MCU Configuration--------------------------------------------------------*/
 
-	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-	HAL_Init();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
-	/* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
 
-	/* USER CODE END Init */
+  /* USER CODE END Init */
 
-	/* Configure the system clock */
-	SystemClock_Config();
+  /* Configure the system clock */
+  SystemClock_Config();
 
-	/* USER CODE BEGIN SysInit */
+  /* USER CODE BEGIN SysInit */
 
-	/* USER CODE END SysInit */
+  /* USER CODE END SysInit */
 
-	/* Initialize all configured peripherals */
-	MX_GPIO_Init();
-	MX_USART2_UART_Init();
-	MX_I2C1_Init();
-	MX_USART1_UART_Init();
-	/* USER CODE BEGIN 2 */
-//	int16_t write_bits(uint8_t regiAddr, uint8_t bitstart, uint8_t length,
-//			uint8_t data) {
-//		uint8_t regValue;
-//		if (HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr, RegBitSize,
-//				&regValue, 1, 1000) == HAL_OK) {
-//			uint8_t mask = ((1 << length) - 1) << (9 - length - bitstart);
-//			data <<= (RegBitSize - length - bitstart - 1);
-//			data &= mask;
-//			regValue &= ~(mask);
-//			regValue |= data;
-//			return HAL_I2C_Mem_Write(&hi2c1, MPU6050_adress, regiAddr,
-//			RegBitSize, &regValue, 1, 1000);
-//		} else {
-//			return 0;
-//		}
-//	}
-	uint8_t buff;
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART2_UART_Init();
+  MX_I2C1_Init();
+  MX_USART1_UART_Init();
+  /* USER CODE BEGIN 2 */
+	int16_t write_bits(uint8_t regiAddr, uint8_t bitstart, uint8_t length,
+			uint8_t data) {
+		uint8_t regValue;
+		HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr, RegBitSize,
+				&regValue, 1, 1000);
+		uint8_t mask = ((1 << length) - 1) << (9 - length - bitstart);
+		data <<= (RegBitSize - length - bitstart - 1);
+		data &= mask;
+		regValue &= ~(mask);
+		regValue |= data;
+		return HAL_I2C_Mem_Write(&hi2c1, MPU6050_adress, regiAddr,
+		RegBitSize, &regValue, 1, 1000);
+	}
+	char buff;
 	int intbuff;
-	char str;
-	/* USER CODE END 2 */
+	char str[100];
+  /* USER CODE END 2 */
 
-	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
 //	HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr_CLKSCL, RegBitSize, &buff,
 //			1, 1000);
 //	buff = (int) buff;
@@ -141,187 +139,234 @@ int main(void) {
 //	buff = (int) buff;
 //	sprintf(str, "%d\n\r", buff);
 //	HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+	//write_bits(regiAddr_CLKSCL, startbits_CLKSCL, lengh_CLKSCL, xGyro_CLKSCL);
+//	uint8_t regiAddr = 0x6b;
+//	uint8_t length = lengh_CLKSCL;
+//	uint8_t bitstart = startbits_CLKSCL;
+//	uint8_t regValue = 0;
+//	uint16_t data;
+//	HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr, RegBitSize, &buff, 1,
+//			1000);
+//	intbuff = (int) buff;
+//	sprintf(str, "%d\n\r", intbuff);
+//	HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+//	uint8_t mask = ((1 << length) - 1) << (9 - length - bitstart);
+//	data <<= (RegBitSize - length - bitstart - 1);
+//	data &= mask;
+//	regValue &= ~(mask);
+//	regValue |= data;
+//	HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr, RegBitSize, &buff, 1,
+//			1000);
+//	intbuff = (int) buff;
+//	sprintf(str, "%d\n\r", intbuff);
+//	HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+	uint8_t data = 0x09;
+	if(HAL_I2C_Mem_Write(&hi2c1, 0x68, 0x6b, 8, &data, 1, 1000)!=HAL_OK){
+		while(1){
+			HAL_UART_Transmit(&huart2, (uint16_t*)"error\r\n", 10, 1000);
+		}
+	}
 	while (1) {
-		/* USER CODE END WHILE */
-//		HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr_CLKSCL, RegBitSize,
-//				&buff, 1, 1000);
-		//intbuff = (int) buff;
-		intbuff =1;
-		sprintf(str, "%d\n\r", intbuff);
-		HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
-		/* USER CODE BEGIN 3 */
+//		HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr_CLKSCL,
+//		RegBitSize, &buff, 1, 1000);
+//		intbuff = (int) buff;
+//		sprintf(str, "%d\n", intbuff);
+//		HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+//		write_bits(regiAddr_CLKSCL, startbits_CLKSCL, lengh_CLKSCL,
+//				xGyro_CLKSCL);
+//		for (int i = 0; i < 100000; i++) {
+//			HAL_I2C_Mem_Read(&hi2c1, MPU6050_adress, regiAddr_CLKSCL,
+//					RegBitSize, &buff, 1, 1000);
+//			intbuff = (int) buff;
+//			sprintf(str, "%d\n\r", intbuff);
+//			HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+//		}
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
 	}
-	/* USER CODE END 3 */
+  /* USER CODE END 3 */
 }
 
 /**
- * @brief System Clock Configuration
- * @retval None
- */
-void SystemClock_Config(void) {
-	RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
-	RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
-	RCC_PeriphCLKInitTypeDef PeriphClkInit = { 0 };
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-	/** Initializes the RCC Oscillators according to the specified parameters
-	 * in the RCC_OscInitTypeDef structure.
-	 */
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-	RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-	RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
-		Error_Handler();
-	}
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Initializes the CPU, AHB and APB buses clocks
-	 */
-	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
-			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
-	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) {
-		Error_Handler();
-	}
-	PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1
-			| RCC_PERIPHCLK_I2C1;
-	PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK1;
-	PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
-	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) {
-		Error_Handler();
-	}
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_I2C1;
+  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK1;
+  PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 
 /**
- * @brief I2C1 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_I2C1_Init(void) {
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
 
-	/* USER CODE BEGIN I2C1_Init 0 */
+  /* USER CODE BEGIN I2C1_Init 0 */
 
-	/* USER CODE END I2C1_Init 0 */
+  /* USER CODE END I2C1_Init 0 */
 
-	/* USER CODE BEGIN I2C1_Init 1 */
+  /* USER CODE BEGIN I2C1_Init 1 */
 
-	/* USER CODE END I2C1_Init 1 */
-	hi2c1.Instance = I2C1;
-	hi2c1.Init.Timing = 0x0000020B;
-	hi2c1.Init.OwnAddress1 = 0;
-	hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-	hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-	hi2c1.Init.OwnAddress2 = 0;
-	hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
-	hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-	hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-	if (HAL_I2C_Init(&hi2c1) != HAL_OK) {
-		Error_Handler();
-	}
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.Timing = 0x2000090E;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Configure Analogue filter
-	 */
-	if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE)
-			!= HAL_OK) {
-		Error_Handler();
-	}
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-	/** Configure Digital filter
-	 */
-	if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN I2C1_Init 2 */
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
 
-	/* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
- * @brief USART1 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_USART1_UART_Init(void) {
-
-	/* USER CODE BEGIN USART1_Init 0 */
-
-	/* USER CODE END USART1_Init 0 */
-
-	/* USER CODE BEGIN USART1_Init 1 */
-
-	/* USER CODE END USART1_Init 1 */
-	huart1.Instance = USART1;
-	huart1.Init.BaudRate = 38400;
-	huart1.Init.WordLength = UART_WORDLENGTH_8B;
-	huart1.Init.StopBits = UART_STOPBITS_1;
-	huart1.Init.Parity = UART_PARITY_NONE;
-	huart1.Init.Mode = UART_MODE_TX_RX;
-	huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-	huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-	huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-	if (HAL_UART_Init(&huart1) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN USART1_Init 2 */
-
-	/* USER CODE END USART1_Init 2 */
+  /* USER CODE END I2C1_Init 2 */
 
 }
 
 /**
- * @brief USART2 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_USART2_UART_Init(void) {
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
 
-	/* USER CODE BEGIN USART2_Init 0 */
+  /* USER CODE BEGIN USART1_Init 0 */
 
-	/* USER CODE END USART2_Init 0 */
+  /* USER CODE END USART1_Init 0 */
 
-	/* USER CODE BEGIN USART2_Init 1 */
+  /* USER CODE BEGIN USART1_Init 1 */
 
-	/* USER CODE END USART2_Init 1 */
-	huart2.Instance = USART2;
-	huart2.Init.BaudRate = 38400;
-	huart2.Init.WordLength = UART_WORDLENGTH_8B;
-	huart2.Init.StopBits = UART_STOPBITS_1;
-	huart2.Init.Parity = UART_PARITY_NONE;
-	huart2.Init.Mode = UART_MODE_TX_RX;
-	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-	huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-	huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-	if (HAL_UART_Init(&huart2) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN USART2_Init 2 */
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 38400;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
 
-	/* USER CODE END USART2_Init 2 */
+  /* USER CODE END USART1_Init 2 */
 
 }
 
 /**
- * @brief GPIO Initialization Function
- * @param None
- * @retval None
- */
-static void MX_GPIO_Init(void) {
-	/* USER CODE BEGIN MX_GPIO_Init_1 */
-	/* USER CODE END MX_GPIO_Init_1 */
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
 
-	/* GPIO Ports Clock Enable */
-	__HAL_RCC_GPIOF_CLK_ENABLE();
-	__HAL_RCC_GPIOA_CLK_ENABLE();
-	__HAL_RCC_GPIOB_CLK_ENABLE();
+  /* USER CODE BEGIN USART2_Init 0 */
 
-	/* USER CODE BEGIN MX_GPIO_Init_2 */
-	/* USER CODE END MX_GPIO_Init_2 */
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -329,16 +374,17 @@ static void MX_GPIO_Init(void) {
 /* USER CODE END 4 */
 
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
- */
-void Error_Handler(void) {
-	/* USER CODE BEGIN Error_Handler_Debug */
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
 	/* User can add his own implementation to report the HAL error return state */
 	__disable_irq();
 	while (1) {
 	}
-	/* USER CODE END Error_Handler_Debug */
+  /* USER CODE END Error_Handler_Debug */
 }
 
 #ifdef  USE_FULL_ASSERT
