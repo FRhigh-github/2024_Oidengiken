@@ -1,10 +1,10 @@
-18:56:33 **** Incremental Build of configuration Debug for project ofence_normal ****
+16:44:08 **** Incremental Build of configuration Debug for project ofence_normal ****
 make -j16 all 
 arm-none-eabi-size  ofence_normal.elf 
    text	   data	    bss	    dec	    hex	filename
-  26316	    100	   2332	  28748	   704c	ofence_normal.elf
+  27116	    100	   2332	  29548	   736c	ofence_normal.elf
 Finished building: default.size.stdout
  
 
-18:56:33 Build Finished. 0 errors, 0 warnings. (took 199ms)
+16:44:08 Build Finished. 0 errors, 0 warnings. (took 201ms)
 

@@ -12,9 +12,9 @@ double Y;
 double COS[16];
 double SIN[16];
 uint16_t IRport[16];
-uint8_t IRdr;
-uint16_t IRAngle_int;
-uint16_t alldata;
+int IRdr;
+int IRAngle_int;
+int alldata;
 uint16_t maxValue;
 uint8_t maxValue_number;
 uint32_t pulsein(uint8_t number, uint8_t state, uint16_t timeout);
@@ -43,7 +43,7 @@ void loop() {
   }
   IRAngle = (atan2(Y, X) * 180 / PI);
   IRAngle_int = int(round(IRAngle));
-  IRAngle_int = IRAngle_int*1.15;
+  IRAngle_int = IRAngle_int;
   IRdr = maxValue*0.15;
   if (IRdr > 99) {
     IRdr = 99;
@@ -53,6 +53,7 @@ void loop() {
   } else {
     alldata = IRAngle_int * 100 - IRdr;
   }
+  alldata=alldata*-1;
   sendIRData(alldata);
 }
 void IRread(int port) {
