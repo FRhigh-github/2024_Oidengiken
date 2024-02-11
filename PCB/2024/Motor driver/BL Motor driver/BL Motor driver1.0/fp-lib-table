@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "DRV8317")(type "KiCad")(uri "C:/Users/aoi_a/Dropbox/RCJ2024/基板/ライブラリ/ul_DRV8317HREER/KiCAD/footprints.pretty")(options "")(descr ""))
+  (lib (name "BLDC_穴3.5　枠5")(type "KiCad")(uri "C:/Users/aoi_a/Dropbox/RCJ2024/基板/ライブラリ/BLDC/BLDC_穴3.5　枠5.pretty")(options "")(descr ""))
+)
