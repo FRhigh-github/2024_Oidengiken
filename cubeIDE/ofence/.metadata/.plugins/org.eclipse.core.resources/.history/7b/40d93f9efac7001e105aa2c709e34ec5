@@ -229,7 +229,7 @@ int main(void) {
 	int wrap_around(void) {
 		if (IRAngle > 0) {
 			if (IRdr > 65) {
-				Angle = IRAngle + 70;
+				Angle = IRAngle + 80;
 			} else if (IRdr > 60) {
 				Angle = IRAngle + 60;
 			} else if (IRdr > 50) {
@@ -243,7 +243,7 @@ int main(void) {
 			}
 		} else {
 			if (IRdr > 65) {
-				Angle = IRAngle - 70;
+				Angle = IRAngle - 80;
 			} else if (IRdr > 60) {
 				Angle = IRAngle - 60;
 			} else if (IRdr > 50) {

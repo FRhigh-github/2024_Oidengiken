@@ -126,7 +126,6 @@ int main(void) {
 	int IRsum;
 	int IR_ave;
 	int IRvalue[20];
-	int Angle;
 
 	char IMUrevh;
 	int IMUrevh_number;
@@ -227,42 +226,28 @@ int main(void) {
 //			return Angle;
 //		}
 	int wrap_around(void) {
-		if (IRAngle > 0) {
-			if (IRdr > 65) {
-				Angle = IRAngle + 70;
-			} else if (IRdr > 60) {
-				Angle = IRAngle + 60;
-			} else if (IRdr > 50) {
-				Angle = IRAngle + 40;
-			} else if (IRdr > 40) {
-				Angle = IRAngle + 20;
-			} else if (IRdr > 35) {
-				Angle = IRAngle + 10;
-			} else {
-				Angle = IRAngle;
+				int Angle;
+				if(IRAngle>70){
+					Angle=IRAngle+80;
+				}else if(IRAngle>60){
+					Angle=IRAngle+60;
+				}else if(IRAngle>50){
+					Angle=IRAngle+40;
+				}else if(IRAngle>40){
+					Angle=IRAngle+20;
+				}else if(IRAngle>35){
+					Angle=IRAngle+10;
+				}else{
+					Angle=IRAngle;
+				}
+
+				if (Angle > 180) {
+					Angle -= 360;
+				} else if (Angle < -180) {
+					Angle += 360;
+				}
+				return Angle;
 			}
-		} else {
-			if (IRdr > 65) {
-				Angle = IRAngle - 70;
-			} else if (IRdr > 60) {
-				Angle = IRAngle - 60;
-			} else if (IRdr > 50) {
-				Angle = IRAngle - 40;
-			} else if (IRdr > 40) {
-				Angle = IRdr - 20;
-			} else if (IRAngle > 35) {
-				Angle = IRdr - 10;
-			} else {
-				Angle = IRAngle;
-			}
-		}
-		if (Angle > 180) {
-			Angle -= 360;
-		} else if (Angle < -180) {
-			Angle += 360;
-		}
-		return Angle;
-	}
 	void getIR() {
 		do {
 			HAL_UART_Receive(&huart1, &IRrevh, sizeof(Linerevh), 1000);
@@ -281,7 +266,7 @@ int main(void) {
 //		if (IRAngle >= 480) {
 //			IRAngle = IRAngle - 644;
 //		}
-		IRAngle = IRAngle * -1;
+		IRAngle = IRAngle * -1.15;
 //		memmove(&IRvalue[0], &IRvalue[1], sizeof(IRvalue[0]) * (19 - 0));
 //		IRvalue[19] = IRdr;
 //		for (int i = 0; i < 20; i++) {
@@ -470,20 +455,13 @@ int main(void) {
 //			Improveattitude(0);
 //			Angle_Movesub(0, allpower);
 //		} else {
-		getIR();
-		if (abs(IRAngle) < 20) {
-			Improveattitude(0);
-			Angle_Movesub(IRAngle, 40);
-		} else {
+			getIR();
 			Improveattitude(0);
 			Angle_Movesub(wrap_around(), 40);
-		}
-//			Improveattitude(0);
-//			Angle_Movesub(wrap_around(), 40);
 //		}
 //		Improveattitude(0);
 //		Angle_Movesub(IRAngle, 50);
-		sprintf(str, "%d\n\r", Angle);
+		sprintf(str, "%d\n\r", IRdr);
 		HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
 		/* USER CODE END WHILE */
 
