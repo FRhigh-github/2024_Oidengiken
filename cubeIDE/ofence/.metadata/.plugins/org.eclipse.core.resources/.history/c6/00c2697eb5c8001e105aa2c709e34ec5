@@ -100,7 +100,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		IRdata[7] = (int) IRrcvBuffer[0];
 		HAL_UART_Receive_IT(&huart1, IRrcvBuffer, 1);
 	}
-
 //	if (huart == &huart4) {
 //		memmove(&Camdata[0], &Camdata[1], sizeof(Camdata[0]) * (9 - 0));
 //		Camdata[9] = (int) CamrcvBuffer[0];
@@ -245,54 +244,62 @@ int main(void) {
 		}
 		IRAngle = IRAngle * -1;
 
-
 	}
-	void getLine() {
-			for (int i = 5; i >= 0; i--) {
-				if (Linedata[i] == 255) {
-					Linerev_number[0] = Linedata[i + 1];
-					Linerev_number[1] = Linedata[i + 2];
-					break;
-				}
-			}
-			Lineorigin = Linerev_number[1] * 256 + Linerev_number[0];
-			LineAngle = Lineorigin * 0.01;
-			LinePower = Lineorigin % 100;
-			LinePower = abs(LinePower);
-			if (LineAngle >= 475) {
-				LineAngle = LineAngle - 655;
-			}
-		}
 	int wrap_around(void) {
 		if (IRAngle > 0) {
 			if (IRdr > 80) {
-				Angle = IRAngle + 60;
+				Angle = IRAngle + 55;
 			} else if (IRdr > 70) {
-				Angle = IRAngle + 50;
+				Angle = IRAngle + 45;
 			} else if (IRdr > 60) {
-				Angle = IRAngle + 40;
+				Angle = IRAngle + 35;
 			} else if (IRdr > 50) {
-				Angle = IRAngle + 30;
+				Angle = IRAngle + 25;
 			} else if (IRdr > 40) {
-				Angle = IRAngle + 20;
+				Angle = IRAngle + 15;
 			} else {
 				Angle = IRAngle;
 			}
 		} else {
 			if (IRdr > 80) {
-				Angle = IRAngle - 60;
+				Angle = IRAngle - 55;
 			} else if (IRdr > 70) {
-				Angle = IRAngle - 50;
+				Angle = IRAngle - 45;
 			} else if (IRdr > 60) {
-				Angle = IRAngle - 40;
+				Angle = IRAngle - 35;
 			} else if (IRdr > 50) {
-				Angle = IRAngle - 30;
+				Angle = IRAngle - 25;
 			} else if (IRdr > 40) {
-				Angle = IRAngle - 20;
+				Angle = IRAngle - 15;
 			} else {
 				Angle = IRAngle;
 			}
 		}
+		Angle = Angle * 1.2;
+		if (Angle > 180) {
+			Angle -= 360;
+		} else if (Angle < -180) {
+			Angle += 360;
+		}
+		return Angle;
+	}
+	void getLine() {
+		for (int i = 5; i >= 0; i--) {
+			if (Linedata[i] == 255) {
+				Linerev_number[0] = Linedata[i + 1];
+				Linerev_number[1] = Linedata[i + 2];
+				break;
+			}
+		}
+		Lineorigin = Linerev_number[1] * 256 + Linerev_number[0];
+		LineAngle = Lineorigin * 0.01;
+		LinePower = Lineorigin % 100;
+		LinePower = abs(LinePower);
+		if (LineAngle >= 475) {
+			LineAngle = LineAngle - 655;
+		}
+	}
+
 		Angle = Angle * 1.2;
 		if (Angle > 180) {
 			Angle -= 360;
@@ -409,8 +416,8 @@ int main(void) {
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
 	HAL_UART_Receive_IT(&huart3, &IMUrcvBuffer, 1);
-		HAL_UART_Receive_IT(&huart1, &IRrcvBuffer, 1);
-		HAL_UART_Receive_IT(&huart5, &LinercvBuffer, 1);
+	HAL_UART_Receive_IT(&huart1, &IRrcvBuffer, 1);
+	HAL_UART_Receive_IT(&huart5, &LinercvBuffer, 1);
 	//getopenmv();
 	//getIR();
 	//getLinedata();

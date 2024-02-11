@@ -1,4 +1,4 @@
-17:05:14 **** Incremental Build of configuration Debug for project ofence_IT ****
+17:14:12 **** Incremental Build of configuration Debug for project ofence_IT ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
@@ -34,34 +34,106 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
    20 | #include "main.h"
   +++ |+#include <stdlib.h>
    21 | 
+../Core/Src/main.c: In function 'LineMove':
+../Core/Src/main.c:344:17: warning: implicit declaration of function 'getLinedata'; did you mean 'getLine'? [-Wimplicit-function-declaration]
+  344 |                 getLinedata();
+      |                 ^~~~~~~~~~~
+      |                 getLine
+../Core/Src/main.c:350:22: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
+  350 |                 Vx = sin(rad);
+      |                      ^~~
+../Core/Src/main.c:21:1: note: include '<math.h>' or provide a declaration of 'sin'
+   20 | #include "main.h"
+  +++ |+#include <math.h>
+   21 | 
+../Core/Src/main.c:350:22: warning: incompatible implicit declaration of built-in function 'sin' [-Wbuiltin-declaration-mismatch]
+  350 |                 Vx = sin(rad);
+      |                      ^~~
+../Core/Src/main.c:350:22: note: include '<math.h>' or provide a declaration of 'sin'
+../Core/Src/main.c:351:22: warning: implicit declaration of function 'cos' [-Wimplicit-function-declaration]
+  351 |                 Vy = cos(rad);
+      |                      ^~~
+../Core/Src/main.c:351:22: note: include '<math.h>' or provide a declaration of 'cos'
+../Core/Src/main.c:351:22: warning: incompatible implicit declaration of built-in function 'cos' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:351:22: note: include '<math.h>' or provide a declaration of 'cos'
+../Core/Src/main.c: In function 'Angle_Movesub':
+../Core/Src/main.c:368:22: warning: incompatible implicit declaration of built-in function 'sin' [-Wbuiltin-declaration-mismatch]
+  368 |                 Vx = sin(rad);
+      |                      ^~~
+../Core/Src/main.c:368:22: note: include '<math.h>' or provide a declaration of 'sin'
+../Core/Src/main.c:369:22: warning: incompatible implicit declaration of built-in function 'cos' [-Wbuiltin-declaration-mismatch]
+  369 |                 Vy = cos(rad);
+      |                      ^~~
+../Core/Src/main.c:369:22: note: include '<math.h>' or provide a declaration of 'cos'
 ../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:410:38: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  410 |         HAL_UART_Receive_IT(&huart3, &IMUrcvBuffer, 1);
+      |                                      ^~~~~~~~~~~~~
+      |                                      |
+      |                                      uint8_t (*)[8] {aka unsigned char (*)[8]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[8]' {aka 'unsigned char (*)[8]'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c:411:46: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  411 |                 HAL_UART_Receive_IT(&huart1, &IRrcvBuffer, 1);
+      |                                              ^~~~~~~~~~~~
+      |                                              |
+      |                                              uint8_t (*)[8] {aka unsigned char (*)[8]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[8]' {aka 'unsigned char (*)[8]'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c:412:46: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  412 |                 HAL_UART_Receive_IT(&huart5, &LinercvBuffer, 1);
+      |                                              ^~~~~~~~~~~~~~
+      |                                              |
+      |                                              uint8_t (*)[8] {aka unsigned char (*)[8]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:748:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[8]' {aka 'unsigned char (*)[8]'}
+  748 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c:450:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  450 |                 sprintf(str, "%d\n\r", IRAngle);
+      |                 ^~~~~~~
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c:450:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  450 |                 sprintf(str, "%d\n\r", IRAngle);
+      |                 ^~~~~~~
+../Core/Src/main.c:450:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:452:50: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  452 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                                  ^~~~~~
+../Core/Src/main.c:452:50: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:452:50: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:452:50: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:452:44: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  452 |                 HAL_UART_Transmit(&huart2, &str, strlen(str), 1000);
+      |                                            ^~~~
+      |                                            |
+      |                                            char (*)[10]
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char (*)[10]'
+  745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
 ../Core/Src/main.c:212:13: warning: unused variable 'allpower' [-Wunused-variable]
   212 |         int allpower;
       |             ^~~~~~~~
-../Core/Src/main.c:211:13: warning: unused variable 'Allp4' [-Wunused-variable]
-  211 |         int Allp4;
-      |             ^~~~~
-../Core/Src/main.c:210:13: warning: unused variable 'Allp3' [-Wunused-variable]
-  210 |         int Allp3;
-      |             ^~~~~
-../Core/Src/main.c:209:13: warning: unused variable 'Allp2' [-Wunused-variable]
-  209 |         int Allp2;
-      |             ^~~~~
-../Core/Src/main.c:208:13: warning: unused variable 'Allp1' [-Wunused-variable]
-  208 |         int Allp1;
-      |             ^~~~~
-../Core/Src/main.c:207:64: warning: unused variable 'derectionpower4' [-Wunused-variable]
-  207 |         int derectionpower1, derectionpower2, derectionpower3, derectionpower4;
-      |                                                                ^~~~~~~~~~~~~~~
-../Core/Src/main.c:207:47: warning: unused variable 'derectionpower3' [-Wunused-variable]
-  207 |         int derectionpower1, derectionpower2, derectionpower3, derectionpower4;
-      |                                               ^~~~~~~~~~~~~~~
-../Core/Src/main.c:207:30: warning: unused variable 'derectionpower2' [-Wunused-variable]
-  207 |         int derectionpower1, derectionpower2, derectionpower3, derectionpower4;
-      |                              ^~~~~~~~~~~~~~~
-../Core/Src/main.c:207:13: warning: unused variable 'derectionpower1' [-Wunused-variable]
-  207 |         int derectionpower1, derectionpower2, derectionpower3, derectionpower4;
-      |             ^~~~~~~~~~~~~~~
 ../Core/Src/main.c:206:32: warning: unused variable 'Lline' [-Wunused-variable]
   206 |         double Vxline, Vyline, Lline;
       |                                ^~~~~
@@ -71,69 +143,12 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
 ../Core/Src/main.c:206:16: warning: unused variable 'Vxline' [-Wunused-variable]
   206 |         double Vxline, Vyline, Lline;
       |                ^~~~~~
-../Core/Src/main.c:205:24: warning: unused variable 'L' [-Wunused-variable]
-  205 |         double Vx, Vy, L;
-      |                        ^
-../Core/Src/main.c:205:20: warning: unused variable 'Vy' [-Wunused-variable]
-  205 |         double Vx, Vy, L;
-      |                    ^~
-../Core/Src/main.c:205:16: warning: unused variable 'Vx' [-Wunused-variable]
-  205 |         double Vx, Vy, L;
-      |                ^~
-../Core/Src/main.c:204:15: warning: unused variable 'rad' [-Wunused-variable]
-  204 |         float rad;
-      |               ^~~
 ../Core/Src/main.c:203:15: warning: unused variable 'pi' [-Wunused-variable]
   203 |         float pi = 3.14; //3.141592
-      |               ^~
-../Core/Src/main.c:202:16: warning: unused variable 'yoso' [-Wunused-variable]
-  202 |         double yoso[3];
-      |                ^~~~
-../Core/Src/main.c:201:16: warning: unused variable 'kesu' [-Wunused-variable]
-  201 |         double kesu[4][3] = { 1, 1, 0.00, 1, -1, 0.00, -1, -1, 0.00, -1, 1, 0.00, };
-      |                ^~~~
-../Core/Src/main.c:200:16: warning: unused variable 'V' [-Wunused-variable]
-  200 |         double V[4]; //
-      |                ^
-../Core/Src/main.c:199:16: warning: unused variable 'Line_rate' [-Wunused-variable]
-  199 |         double Line_rate[4];
-      |                ^~~~~~~~~
-../Core/Src/main.c:197:15: warning: unused variable 'gyroD' [-Wunused-variable]
-  197 |         float gyroD;
-      |               ^~~~~
-../Core/Src/main.c:196:15: warning: unused variable 'gyroI' [-Wunused-variable]
-  196 |         float gyroI;
-      |               ^~~~~
-../Core/Src/main.c:195:15: warning: unused variable 'gyroP' [-Wunused-variable]
-  195 |         float gyroP;
-      |               ^~~~~
-../Core/Src/main.c:194:13: warning: unused variable 'gyrosum' [-Wunused-variable]
-  194 |         int gyrosum;
-      |             ^~~~~~~
-../Core/Src/main.c:193:13: warning: unused variable 'GyroE_1' [-Wunused-variable]
-  193 |         int GyroE_1;
-      |             ^~~~~~~
-../Core/Src/main.c:192:13: warning: unused variable 'GyroE' [-Wunused-variable]
-  192 |         int GyroE;
-      |             ^~~~~
-../Core/Src/main.c:191:15: warning: unused variable 'Gyro_power' [-Wunused-variable]
-  191 |         float Gyro_power = 0; //?????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ? ? ???  ?  Âêë„Åç„Çí‰øÆÊ≠£„Åô„Çã„Å® ? ???  ?  „É¢„Éº„Çø„Éº„ÅÆ??  ?  ?
-      |               ^~~~~~~~~~
-../Core/Src/main.c:190:15: warning: unused variable 'Ki' [-Wunused-variable]
-  190 |         float Ki = 0.000000; //5.03
-      |               ^~
-../Core/Src/main.c:189:15: warning: unused variable 'Kd' [-Wunused-variable]
-  189 |         float Kd = 0.2; //0.58
-      |               ^~
-../Core/Src/main.c:188:15: warning: unused variable 'Kp' [-Wunused-variable]
-  188 |         float Kp = 1.25; //3.06 2.26   //PIDË®≠??  ?  ?
       |               ^~
 ../Core/Src/main.c:187:14: warning: unused variable 'kaigyou' [-Wunused-variable]
   187 |         char kaigyou[] = "\n\r";
       |              ^~~~~~~
-../Core/Src/main.c:186:14: warning: unused variable 'str' [-Wunused-variable]
-  186 |         char str[10];
-      |              ^~~
 ../Core/Src/main.c:184:13: warning: unused variable 'defence_distance' [-Wunused-variable]
   184 |         int defence_distance;
       |             ^~~~~~~~~~~~~~~~
@@ -209,310 +224,40 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -D
 ../Core/Src/main.c:145:14: warning: unused variable 'Linerevh' [-Wunused-variable]
   145 |         char Linerevh;
       |              ^~~~~~~~
-../Core/Src/main.c: In function 'Improveattitude':
-../Core/Src/main.c:312:17: warning: implicit declaration of function 'getIMU' [-Wimplicit-function-declaration]
-  312 |                 getIMU();
-      |                 ^~~~~~
-../Core/Src/main.c:313:17: error: 'Gyro_power' undeclared (first use in this function)
-  313 |                 Gyro_power = 0;
-      |                 ^~~~~~~~~~
-../Core/Src/main.c:313:17: note: each undeclared identifier is reported only once for each function it appears in
-../Core/Src/main.c:314:17: error: 'GyroE_1' undeclared (first use in this function)
-  314 |                 GyroE_1 = GyroE;
-      |                 ^~~~~~~
-../Core/Src/main.c:314:27: error: 'GyroE' undeclared (first use in this function)
-  314 |                 GyroE_1 = GyroE;
-      |                           ^~~~~
-../Core/Src/main.c:315:33: error: 'Gyrodegree' undeclared (first use in this function)
-  315 |                 GyroE = Angle - Gyrodegree;
-      |                                 ^~~~~~~~~~
-../Core/Src/main.c:316:17: error: 'gyrosum' undeclared (first use in this function)
-  316 |                 gyrosum += GyroE;
-      |                 ^~~~~~~
-../Core/Src/main.c:317:17: error: 'gyroP' undeclared (first use in this function)
-  317 |                 gyroP = Kp * GyroE;
-      |                 ^~~~~
-../Core/Src/main.c:317:25: error: 'Kp' undeclared (first use in this function)
-  317 |                 gyroP = Kp * GyroE;
-      |                         ^~
-../Core/Src/main.c:318:17: error: 'gyroI' undeclared (first use in this function)
-  318 |                 gyroI = Ki * gyrosum;
-      |                 ^~~~~
-../Core/Src/main.c:318:25: error: 'Ki' undeclared (first use in this function)
-  318 |                 gyroI = Ki * gyrosum;
-      |                         ^~
-../Core/Src/main.c:319:17: error: 'gyroD' undeclared (first use in this function)
-  319 |                 gyroD = Kd * (GyroE - GyroE_1);
-      |                 ^~~~~
-../Core/Src/main.c:319:25: error: 'Kd' undeclared (first use in this function)
-  319 |                 gyroD = Kd * (GyroE - GyroE_1);
-      |                         ^~
-../Core/Src/main.c: In function 'Improveattitude_target':
-../Core/Src/main.c:324:17: error: 'Gyro_power' undeclared (first use in this function)
-  324 |                 Gyro_power = 0;
-      |                 ^~~~~~~~~~
-../Core/Src/main.c:325:17: error: 'GyroE_1' undeclared (first use in this function)
-  325 |                 GyroE_1 = GyroE;
-      |                 ^~~~~~~
-../Core/Src/main.c:325:27: error: 'GyroE' undeclared (first use in this function)
-  325 |                 GyroE_1 = GyroE;
-      |                           ^~~~~
-../Core/Src/main.c:327:17: error: 'gyrosum' undeclared (first use in this function)
-  327 |                 gyrosum += GyroE;
-      |                 ^~~~~~~
-../Core/Src/main.c:328:17: error: 'gyroP' undeclared (first use in this function)
-  328 |                 gyroP = Kp * GyroE;
-      |                 ^~~~~
-../Core/Src/main.c:328:25: error: 'Kp' undeclared (first use in this function)
-  328 |                 gyroP = Kp * GyroE;
-      |                         ^~
-../Core/Src/main.c:329:17: error: 'gyroI' undeclared (first use in this function)
-  329 |                 gyroI = Ki * gyrosum;
-      |                 ^~~~~
-../Core/Src/main.c:329:25: error: 'Ki' undeclared (first use in this function)
-  329 |                 gyroI = Ki * gyrosum;
-      |                         ^~
-../Core/Src/main.c:330:17: error: 'gyroD' undeclared (first use in this function)
-  330 |                 gyroD = Kd * (GyroE - GyroE_1);
-      |                 ^~~~~
-../Core/Src/main.c:330:25: error: 'Kd' undeclared (first use in this function)
-  330 |                 gyroD = Kd * (GyroE - GyroE_1);
-      |                         ^~
-../Core/Src/main.c: In function 'LineMove':
-../Core/Src/main.c:351:17: warning: implicit declaration of function 'getLinedata' [-Wimplicit-function-declaration]
-  351 |                 getLinedata();
-      |                 ^~~~~~~~~~~
-../Core/Src/main.c:352:17: error: 'Line_rate' undeclared (first use in this function); did you mean 'Linedata'?
-  352 |                 Line_rate[0] = 0.00;
-      |                 ^~~~~~~~~
-      |                 Linedata
-../Core/Src/main.c:356:17: error: 'rad' undeclared (first use in this function)
-  356 |                 rad = LineAngle * 0.017; //  ?/180„ÅÆË®àÁÆó„Çí1„Å§„Å´„Åæ„Å®„ÇÅ„Åü
-      |                 ^~~
-../Core/Src/main.c:356:23: error: 'LineAngle' undeclared (first use in this function)
-  356 |                 rad = LineAngle * 0.017; //  ?/180„ÅÆË®àÁÆó„Çí1„Å§„Å´„Åæ„Å®„ÇÅ„Åü
-      |                       ^~~~~~~~~
-../Core/Src/main.c:357:17: error: 'Vx' undeclared (first use in this function)
-  357 |                 Vx = sin(rad);
-      |                 ^~
-../Core/Src/main.c:357:22: warning: implicit declaration of function 'sin' [-Wimplicit-function-declaration]
-  357 |                 Vx = sin(rad);
-      |                      ^~~
-../Core/Src/main.c:21:1: note: include '<math.h>' or provide a declaration of 'sin'
-   20 | #include "main.h"
-  +++ |+#include <math.h>
-   21 | 
-../Core/Src/main.c:357:22: warning: incompatible implicit declaration of built-in function 'sin' [-Wbuiltin-declaration-mismatch]
-  357 |                 Vx = sin(rad);
-      |                      ^~~
-../Core/Src/main.c:357:22: note: include '<math.h>' or provide a declaration of 'sin'
-../Core/Src/main.c:358:17: error: 'Vy' undeclared (first use in this function)
-  358 |                 Vy = cos(rad);
-      |                 ^~
-../Core/Src/main.c:358:22: warning: implicit declaration of function 'cos' [-Wimplicit-function-declaration]
-  358 |                 Vy = cos(rad);
-      |                      ^~~
-../Core/Src/main.c:358:22: note: include '<math.h>' or provide a declaration of 'cos'
-../Core/Src/main.c:358:22: warning: incompatible implicit declaration of built-in function 'cos' [-Wbuiltin-declaration-mismatch]
-../Core/Src/main.c:358:22: note: include '<math.h>' or provide a declaration of 'cos'
-../Core/Src/main.c:359:17: error: 'L' undeclared (first use in this function)
-  359 |                 L = 0;
-      |                 ^
-../Core/Src/main.c:360:17: error: 'yoso' undeclared (first use in this function)
-  360 |                 yoso[0] = Vx;
-      |                 ^~~~
-../Core/Src/main.c:365:74: error: 'kesu' undeclared (first use in this function)
-  365 |                                 Line_rate[i] = Line_rate[i] + (yoso[j] * kesu[i][j]);
-      |                                                                          ^~~~
-../Core/Src/main.c: In function 'Angle_Movesub':
-../Core/Src/main.c:370:17: error: 'V' undeclared (first use in this function)
-  370 |                 V[0] = 0.00;
-      |                 ^
-../Core/Src/main.c:374:17: error: 'rad' undeclared (first use in this function)
-  374 |                 rad = degree * 0.017;           // ??  ?  ?/180„ÅÆË®àÁÆó„Çí1„Å§„Å´„Åæ„Å®„ÇÅ„Åü
-      |                 ^~~
-../Core/Src/main.c:375:17: error: 'Vx' undeclared (first use in this function)
-  375 |                 Vx = sin(rad);
-      |                 ^~
-../Core/Src/main.c:375:22: warning: incompatible implicit declaration of built-in function 'sin' [-Wbuiltin-declaration-mismatch]
-  375 |                 Vx = sin(rad);
-      |                      ^~~
-../Core/Src/main.c:375:22: note: include '<math.h>' or provide a declaration of 'sin'
-../Core/Src/main.c:376:17: error: 'Vy' undeclared (first use in this function)
-  376 |                 Vy = cos(rad);
-      |                 ^~
-../Core/Src/main.c:376:22: warning: incompatible implicit declaration of built-in function 'cos' [-Wbuiltin-declaration-mismatch]
-  376 |                 Vy = cos(rad);
-      |                      ^~~
-../Core/Src/main.c:376:22: note: include '<math.h>' or provide a declaration of 'cos'
-../Core/Src/main.c:377:17: error: 'L' undeclared (first use in this function)
-  377 |                 L = 0.00;
-      |                 ^
-../Core/Src/main.c:388:17: error: 'yoso' undeclared (first use in this function)
-  388 |                 yoso[0] = Vx;
-      |                 ^~~~
-../Core/Src/main.c:393:58: error: 'kesu' undeclared (first use in this function)
-  393 |                                 V[i] = V[i] + (yoso[j] * kesu[i][j]);
-      |                                                          ^~~~
-../Core/Src/main.c:396:17: error: 'derectionpower1' undeclared (first use in this function)
-  396 |                 derectionpower1 = -V[0] * power - Line_rate[0] * LinePower;     //power„ÅÆÂÄ§??  ?  ?0„Å´„Åô„Çã„Å®„É©„Ç§„É≥„Çª„É≥„Çµ„ÅÆÂäõ„Å†„Åë„ÅßÂãï„Åè„ÅÆ„É©„Ç§„É≥„Çª„É≥„Çµ„Åã„Çâ„Çà„Åë„Çà„ÅÜ„Å®„Åô„Çã
-      |                 ^~~~~~~~~~~~~~~
-../Core/Src/main.c:396:51: error: 'Line_rate' undeclared (first use in this function); did you mean 'Linedata'?
-  396 |                 derectionpower1 = -V[0] * power - Line_rate[0] * LinePower;     //power„ÅÆÂÄ§??  ?  ?0„Å´„Åô„Çã„Å®„É©„Ç§„É≥„Çª„É≥„Çµ„ÅÆÂäõ„Å†„Åë„ÅßÂãï„Åè„ÅÆ„É©„Ç§„É≥„Çª„É≥„Çµ„Åã„Çâ„Çà„Åë„Çà„ÅÜ„Å®„Åô„Çã
-      |                                                   ^~~~~~~~~
-      |                                                   Linedata
-../Core/Src/main.c:396:66: error: 'LinePower' undeclared (first use in this function); did you mean 'LineMove'?
-  396 |                 derectionpower1 = -V[0] * power - Line_rate[0] * LinePower;     //power„ÅÆÂÄ§??  ?  ?0„Å´„Åô„Çã„Å®„É©„Ç§„É≥„Çª„É≥„Çµ„ÅÆÂäõ„Å†„Åë„ÅßÂãï„Åè„ÅÆ„É©„Ç§„É≥„Çª„É≥„Çµ„Åã„Çâ„Çà„Åë„Çà„ÅÜ„Å®„Åô„Çã
-      |                                                                  ^~~~~~~~~
-      |                                                                  LineMove
-../Core/Src/main.c:397:17: error: 'derectionpower2' undeclared (first use in this function)
-  397 |                 derectionpower2 = -V[1] * power - Line_rate[1] * LinePower;
-      |                 ^~~~~~~~~~~~~~~
-../Core/Src/main.c:398:17: error: 'derectionpower3' undeclared (first use in this function)
-  398 |                 derectionpower3 = -V[2] * power - Line_rate[2] * LinePower;
-      |                 ^~~~~~~~~~~~~~~
-../Core/Src/main.c:399:17: error: 'derectionpower4' undeclared (first use in this function)
-  399 |                 derectionpower4 = -V[3] * power - Line_rate[3] * LinePower;
-      |                 ^~~~~~~~~~~~~~~
-../Core/Src/main.c:400:17: error: 'Allp1' undeclared (first use in this function)
-  400 |                 Allp1 = derectionpower1 + Gyro_power;
-      |                 ^~~~~
-../Core/Src/main.c:400:43: error: 'Gyro_power' undeclared (first use in this function)
-  400 |                 Allp1 = derectionpower1 + Gyro_power;
-      |                                           ^~~~~~~~~~
-../Core/Src/main.c:401:17: error: 'Allp2' undeclared (first use in this function)
-  401 |                 Allp2 = derectionpower2 + Gyro_power;
-      |                 ^~~~~
-../Core/Src/main.c:402:17: error: 'Allp3' undeclared (first use in this function)
-  402 |                 Allp3 = derectionpower3 + Gyro_power;
-      |                 ^~~~~
-../Core/Src/main.c:403:17: error: 'Allp4' undeclared (first use in this function)
-  403 |                 Allp4 = derectionpower4 + Gyro_power;
-      |                 ^~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:413:27: error: expected declaration specifiers or '...' before '&' token
-  413 |         HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);//PWM„ÇíÈñãÂßã„Åô„ÇãÈñ¢Êï∞??????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ„Ç´„Ç¶„É≥„Çø„Éº„Éî„É™„Ç™„ÉâÔøΩ?200?????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?„Éó„É™„Çπ„Ç±„Éº„É©??????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?4??????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?
-      |                           ^
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:740:44: error: expected declaration specifiers or '...' before numeric constant
-  740 | #define TIM_CHANNEL_3                      0x00000008U                          /*!< Capture/compare channel 3 identifier      */
-      |                                            ^~~~~~~~~~~
-../Core/Src/main.c:413:35: note: in expansion of macro 'TIM_CHANNEL_3'
-  413 |         HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);//PWM„ÇíÈñãÂßã„Åô„ÇãÈñ¢Êï∞??????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ„Ç´„Ç¶„É≥„Çø„Éº„Éî„É™„Ç™„ÉâÔøΩ?200?????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?„Éó„É™„Çπ„Ç±„Éº„É©??????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?4??????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ????øΩ?øΩ??øΩ?øΩ???øΩ?øΩ??øΩ?øΩ?
-      |                                   ^~~~~~~~~~~~~
-../Core/Src/main.c:414:27: error: expected declaration specifiers or '...' before '&' token
-  414 |         HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
-      |                           ^
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:741:44: error: expected declaration specifiers or '...' before numeric constant
-  741 | #define TIM_CHANNEL_4                      0x0000000CU                          /*!< Capture/compare channel 4 identifier      */
-      |                                            ^~~~~~~~~~~
-../Core/Src/main.c:414:35: note: in expansion of macro 'TIM_CHANNEL_4'
-  414 |         HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
-      |                                   ^~~~~~~~~~~~~
-../Core/Src/main.c:415:27: error: expected declaration specifiers or '...' before '&' token
-  415 |         HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-      |                           ^
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:740:44: error: expected declaration specifiers or '...' before numeric constant
-  740 | #define TIM_CHANNEL_3                      0x00000008U                          /*!< Capture/compare channel 3 identifier      */
-      |                                            ^~~~~~~~~~~
-../Core/Src/main.c:415:35: note: in expansion of macro 'TIM_CHANNEL_3'
-  415 |         HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-      |                                   ^~~~~~~~~~~~~
-../Core/Src/main.c:416:27: error: expected declaration specifiers or '...' before '&' token
-  416 |         HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
-      |                           ^
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:741:44: error: expected declaration specifiers or '...' before numeric constant
-  741 | #define TIM_CHANNEL_4                      0x0000000CU                          /*!< Capture/compare channel 4 identifier      */
-      |                                            ^~~~~~~~~~~
-../Core/Src/main.c:416:35: note: in expansion of macro 'TIM_CHANNEL_4'
-  416 |         HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
-      |                                   ^~~~~~~~~~~~~
-../Core/Src/main.c:417:29: error: expected declaration specifiers or '...' before '&' token
-  417 |         HAL_UART_Receive_IT(&huart3, &IMUrcvBuffer, 1);
-      |                             ^
-../Core/Src/main.c:417:38: error: expected declaration specifiers or '...' before '&' token
-  417 |         HAL_UART_Receive_IT(&huart3, &IMUrcvBuffer, 1);
-      |                                      ^
-../Core/Src/main.c:417:53: error: expected declaration specifiers or '...' before numeric constant
-  417 |         HAL_UART_Receive_IT(&huart3, &IMUrcvBuffer, 1);
-      |                                                     ^
-../Core/Src/main.c:418:29: error: expected declaration specifiers or '...' before '&' token
-  418 |         HAL_UART_Receive_IT(&huart1, &IRrcvBuffer, 1);
-      |                             ^
-../Core/Src/main.c:418:38: error: expected declaration specifiers or '...' before '&' token
-  418 |         HAL_UART_Receive_IT(&huart1, &IRrcvBuffer, 1);
-      |                                      ^
-../Core/Src/main.c:418:52: error: expected declaration specifiers or '...' before numeric constant
-  418 |         HAL_UART_Receive_IT(&huart1, &IRrcvBuffer, 1);
-      |                                                    ^
-../Core/Src/main.c:419:29: error: expected declaration specifiers or '...' before '&' token
-  419 |         HAL_UART_Receive_IT(&huart5, &LinercvBuffer, 1);
-      |                             ^
-../Core/Src/main.c:419:38: error: expected declaration specifiers or '...' before '&' token
-  419 |         HAL_UART_Receive_IT(&huart5, &LinercvBuffer, 1);
-      |                                      ^
-../Core/Src/main.c:419:54: error: expected declaration specifiers or '...' before numeric constant
-  419 |         HAL_UART_Receive_IT(&huart5, &LinercvBuffer, 1);
-      |                                                      ^
-../Core/Src/main.c:424:21: error: expected declaration specifiers or '...' before numeric constant
-  424 |         Motor_Speed(1, 0);
-      |                     ^
-../Core/Src/main.c:424:24: error: expected declaration specifiers or '...' before numeric constant
-  424 |         Motor_Speed(1, 0);
-      |                        ^
-../Core/Src/main.c:425:21: error: expected declaration specifiers or '...' before numeric constant
-  425 |         Motor_Speed(2, 0);
-      |                     ^
-../Core/Src/main.c:425:24: error: expected declaration specifiers or '...' before numeric constant
-  425 |         Motor_Speed(2, 0);
-      |                        ^
-../Core/Src/main.c:426:21: error: expected declaration specifiers or '...' before numeric constant
-  426 |         Motor_Speed(3, 0);
-      |                     ^
-../Core/Src/main.c:426:24: error: expected declaration specifiers or '...' before numeric constant
-  426 |         Motor_Speed(3, 0);
-      |                        ^
-../Core/Src/main.c:427:21: error: expected declaration specifiers or '...' before numeric constant
-  427 |         Motor_Speed(4, 0);
-      |                     ^
-../Core/Src/main.c:427:24: error: expected declaration specifiers or '...' before numeric constant
-  427 |         Motor_Speed(4, 0);
-      |                        ^
-../Core/Src/main.c:428:19: error: expected declaration specifiers or '...' before numeric constant
-  428 |         HAL_Delay(50);
-      |                   ^~
-../Core/Src/main.c:429:9: error: expected identifier or '(' before 'while'
-  429 |         while (1) {
-      |         ^~~~~
-../Core/Src/main.c:471:1: error: expected identifier or '(' before '}' token
-  471 | }
-      | ^
-../Core/Src/main.c:286:14: warning: 'getLine' defined but not used [-Wunused-function]
-  286 |         void getLine() {
-      |              ^~~~~~~
-../Core/Src/main.c:248:13: warning: 'wrap_around' defined but not used [-Wunused-function]
-  248 |         int wrap_around(void) {
+At top level:
+../Core/Src/main.c:362:14: warning: 'Angle_Movesub' defined but not used [-Wunused-function]
+  362 |         void Angle_Movesub(int degree, int power) {     //ÈÄ≤„Åø„Åü„ÅÑËßíÂ∫¶„Å®„É¢„Éº„Çø„Éº„ÅÆÂá∫??  ?  ? ???  ?  ??  ?  ? ???  ?  Âäõ„Åô??  ?  ? ???  ?  ??  ?  ? ???  ?  ËßíÂ∫¶„Å´ÈÄ≤??  ?  ?
+      |              ^~~~~~~~~~~~~
+../Core/Src/main.c:343:14: warning: 'LineMove' defined but not used [-Wunused-function]
+  343 |         void LineMove() {
+      |              ^~~~~~~~
+../Core/Src/main.c:315:14: warning: 'Improveattitude_target' defined but not used [-Wunused-function]
+  315 |         void Improveattitude_target(int Angle, int basic) {
+      |              ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:304:14: warning: 'Improveattitude' defined but not used [-Wunused-function]
+  304 |         void Improveattitude(int Angle) {
+      |              ^~~~~~~~~~~~~~~
+../Core/Src/main.c:265:13: warning: 'wrap_around' defined but not used [-Wunused-function]
+  265 |         int wrap_around(void) {
       |             ^~~~~~~~~~~
-../Core/Src/main.c:229:14: warning: 'getIR' defined but not used [-Wunused-function]
-  229 |         void getIR() {
-      |              ^~~~~
-../Core/Src/main.c:213:14: warning: 'getIMU' defined but not used [-Wunused-function]
-  213 |         void getIMU() {
-      |              ^~~~~~
-make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
-"make -j16 all" terminated with exit code 2. Build might be incomplete.
+../Core/Src/main.c:249:14: warning: 'getLine' defined but not used [-Wunused-function]
+  249 |         void getLine() {
+      |              ^~~~~~~
+arm-none-eabi-gcc -o "ofence_IT.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mizun\Documents\GitHub\2024_Oidengiken\cubeIDE\ofence\ofence_IT\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ofence_IT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ofence_IT.elf
+ 
+arm-none-eabi-size  ofence_IT.elf 
+arm-none-eabi-objdump -h -S ofence_IT.elf  > "ofence_IT.list"
+   text	   data	    bss	    dec	    hex	filename
+  19316	    100	   2364	  21780	   5514	ofence_IT.elf
+Finished building: default.size.stdout
+ 
+Finished building: ofence_IT.list
+ 
+17:20:52 **** Incremental Build of configuration Debug for project ofence_IT ****
+make -j16 all 
+arm-none-eabi-size  ofence_IT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19316	    100	   2364	  21780	   5514	ofence_IT.elf
+Finished building: default.size.stdout
+ 

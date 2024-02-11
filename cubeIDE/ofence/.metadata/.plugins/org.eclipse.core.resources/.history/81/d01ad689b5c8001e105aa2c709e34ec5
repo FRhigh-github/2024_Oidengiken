@@ -100,7 +100,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		IRdata[7] = (int) IRrcvBuffer[0];
 		HAL_UART_Receive_IT(&huart1, IRrcvBuffer, 1);
 	}
-
 //	if (huart == &huart4) {
 //		memmove(&Camdata[0], &Camdata[1], sizeof(Camdata[0]) * (9 - 0));
 //		Camdata[9] = (int) CamrcvBuffer[0];
@@ -247,6 +246,44 @@ int main(void) {
 
 
 	}
+	int wrap_around(void) {
+			if (IRAngle > 0) {
+				if (IRdr > 80) {
+					Angle = IRAngle + 55;
+				} else if (IRdr > 70) {
+					Angle = IRAngle + 45;
+				} else if (IRdr > 60) {
+					Angle = IRAngle + 35;
+				} else if (IRdr > 50) {
+					Angle = IRAngle + 25;
+				} else if (IRdr > 40) {
+					Angle = IRAngle + 15;
+				} else {
+					Angle = IRAngle;
+				}
+			} else {
+				if (IRdr > 80) {
+					Angle = IRAngle - 55;
+				} else if (IRdr > 70) {
+					Angle = IRAngle - 45;
+				} else if (IRdr > 60) {
+					Angle = IRAngle - 35;
+				} else if (IRdr > 50) {
+					Angle = IRAngle - 25;
+				} else if (IRdr > 40) {
+					Angle = IRAngle - 15;
+				} else {
+					Angle = IRAngle;
+				}
+			}
+			Angle = Angle * 1.2;
+			if (Angle > 180) {
+				Angle -= 360;
+			} else if (Angle < -180) {
+				Angle += 360;
+			}
+			return Angle;
+		}
 	void getLine() {
 			for (int i = 5; i >= 0; i--) {
 				if (Linedata[i] == 255) {

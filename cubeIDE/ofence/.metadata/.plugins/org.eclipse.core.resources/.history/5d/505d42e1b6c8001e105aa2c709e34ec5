@@ -100,7 +100,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		IRdata[7] = (int) IRrcvBuffer[0];
 		HAL_UART_Receive_IT(&huart1, IRrcvBuffer, 1);
 	}
-
 //	if (huart == &huart4) {
 //		memmove(&Camdata[0], &Camdata[1], sizeof(Camdata[0]) * (9 - 0));
 //		Camdata[9] = (int) CamrcvBuffer[0];
